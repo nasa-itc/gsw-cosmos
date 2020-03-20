@@ -1,0 +1,8 @@
+TITLE 'COSMOS Command and Telemetry Server - NOS3 Configuration' 
+
+INTERFACE MISSION_INT udp_interface.rb 127.0.0.1 5010 5011 nil nil 128 nil nil
+  TARGET ARDUCAM
+  TARGET CFS
+  TARGET CMD_UTIL
+  TARGET NOVATEL_OEM615
+  TARGET SAMPLE

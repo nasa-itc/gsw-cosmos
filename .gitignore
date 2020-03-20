@@ -1,0 +1,3 @@
+outputs/*
+Gemfile.lock
+tmp
