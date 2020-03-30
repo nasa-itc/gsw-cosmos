@@ -1,12 +1,56 @@
 TELEMETRY SAMPLE SAMPLE_HK_TLM_T LITTLE_ENDIAN "SAMPLE_Hk_tlm_t"
-  APPEND_ID_ITEM CCSDS_PKT_VER         3 UINT 0b000 "CCSDS Packet Version Number (Always 000)" BIG_ENDIAN
-  APPEND_ID_ITEM CCSDS_PKT_TYP         1 UINT 0b0   "CCSDS Packet Type (0=telemetry, 1=command)" BIG_ENDIAN
-  APPEND_ID_ITEM CCSDS_SEC_FLG         1 UINT 0b1   "CCSDS Packet Secondary Header Flag (1=secondary header present, 0=secondary header NOT present)" BIG_ENDIAN
-  APPEND_ID_ITEM CCSDS_APID           11 UINT 0x3C8  "CCSDS Packet Application Process Identifier (APID)" BIG_ENDIAN
-  APPEND_ITEM    CCSDS_SEQ_FLAGS       2 UINT "CCSDS Packet Sequence Flags (binary 11 = unsegmented)" BIG_ENDIAN
-  APPEND_ITEM    CCSDS_SEQ_COUNT      14 UINT "CCSDS Packet Sequence Count" BIG_ENDIAN
-  APPEND_ITEM    CCSDS_LENGTH         16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM    CCSDS_SECONDS        32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
-  APPEND_ITEM    CCSDS_SUBSECS        16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
-  APPEND_ITEM    COMMANDERRORCOUNT    8 UINT "CommandErrorCount"
-  APPEND_ITEM    COMMANDCOUNT         8 UINT "CommandCount"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08FA  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    COMMANDERRORCOUNT     8 UINT         "CommandErrorCount"
+  APPEND_ITEM    COMMANDCOUNT          8 UINT         "CommandCount"
+  APPEND_ITEM    MS_STREAM_DELAY      32 UINT         "Millisecond Stream Delay"
+
+TELEMETRY SAMPLE SAMPLE_RAWIO_TLM_T LITTLE_ENDIAN "SAMPLE_RawIO_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08FB  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    WRITE_LENGTH          8 UINT         "Length of data to be written to device"
+  APPEND_ARRAY_ITEM WRITE_DATA         8 UINT 2048    "Data written to device"
+  APPEND_ITEM    MS_TIMEOUT            8 UINT         "Requested device reply timeout"
+  APPEND_ITEM    MS_DELAY              8 UINT         "Actual device reply time"
+  APPEND_ITEM    READ_REQUEST          8 UINT         "Length of data to be read from device"
+  APPEND_ITEM    READ_LENGTH           8 UINT         "Actual length of data read from device"
+  APPEND_ARRAY_ITEM READ_DATA          8 UINT 2048    "Data read from device"
+
+TELEMETRY SAMPLE SAMPLE_DEVICE_TLM_T LITTLE_ENDIAN "SAMPLE_Device_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08FC  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    SAMPLE_COUNT         32 UINT         "Sample Count"
+  APPEND_ITEM    SAMPLE_DATA          32 FLOAT        "Sample Data"
+
+TELEMETRY SAMPLE SAMPLE_DEVICEPACK_TLM_T LITTLE_ENDIAN "SAMPLE_DevicePack_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08FD "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT        "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT        "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT        "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT        "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    SAMPLE_COUNT_1       32 UINT        "Sample Count 1"
+  APPEND_ITEM    SAMPLE_DATA_1        32 FLOAT       "Sample Data 1"
+  APPEND_ITEM    SAMPLE_COUNT_2       32 UINT        "Sample Count 2"
+  APPEND_ITEM    SAMPLE_DATA_2        32 FLOAT       "Sample Data 2"
+  APPEND_ITEM    SAMPLE_COUNT_3       32 UINT        "Sample Count 3"
+  APPEND_ITEM    SAMPLE_DATA_3        32 FLOAT       "Sample Data 3"
+  APPEND_ITEM    SAMPLE_COUNT_4       32 UINT        "Sample Count 4"
+  APPEND_ITEM    SAMPLE_DATA_4        32 FLOAT       "Sample Data 4"
+  APPEND_ITEM    SAMPLE_COUNT_5       32 UINT        "Sample Count 5"
+  APPEND_ITEM    SAMPLE_DATA_5        32 FLOAT       "Sample Data 5"
+  APPEND_ITEM    SAMPLE_COUNT_6       32 UINT        "Sample Count 6"
+  APPEND_ITEM    SAMPLE_DATA_6        32 FLOAT       "Sample Data 6"
+  APPEND_ITEM    SAMPLE_COUNT_7       32 UINT        "Sample Count 7"
+  APPEND_ITEM    SAMPLE_DATA_7        32 FLOAT       "Sample Data 7"
+  APPEND_ITEM    SAMPLE_COUNT_8       32 UINT        "Sample Count 8"
+  APPEND_ITEM    SAMPLE_DATA_8        32 FLOAT       "Sample Data 8"
+  
