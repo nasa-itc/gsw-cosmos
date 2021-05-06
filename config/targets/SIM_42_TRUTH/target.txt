@@ -1,0 +1,4 @@
+REQUIRE vector_magnitude.rb
+REQUIRE orbit_normal.rb
+REQUIRE svn.rb
+REQUIRE beta_angle.rb

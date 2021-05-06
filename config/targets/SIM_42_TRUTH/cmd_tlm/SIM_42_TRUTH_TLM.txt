@@ -21,3 +21,45 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
     APPEND_ARRAY_ITEM   QN                      64  FLOAT 256 "Body Quaternion in Inertial Frame"
         FORMAT_STRING "%.3f"
     APPEND_ITEM         NEWLINE                 8   UINT  "Newline character"
+    APPEND_ITEM         WN_X_DPS                0   DERIVED   "Body Angular Rate X in Body Frame (deg/s)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return packet.read('WN')[0] * 180.0/3.141592653589793
+    GENERIC_READ_CONVERSION_END
+    FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_Y_DPS                0   DERIVED   "Body Angular Rate Y in Body Frame (deg/s)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return packet.read('WN')[1] * 180.0/3.141592653589793
+    GENERIC_READ_CONVERSION_END
+    FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_Z_DPS                0   DERIVED   "Body Angular Rate Z in Body Frame (deg/s)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return packet.read('WN')[2] * 180.0/3.141592653589793
+    GENERIC_READ_CONVERSION_END
+    FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_X_NT                0   DERIVED   "Magnetic Field Vector X in Body Frame (nT)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return packet.read('BVB')[0] * 1000000000.0
+    GENERIC_READ_CONVERSION_END
+    FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_Y_NT                0   DERIVED   "Magnetic Field Vector Y in Body Frame (nT)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return packet.read('BVB')[1] * 1000000000.0
+    GENERIC_READ_CONVERSION_END
+    FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_Z_NT                0   DERIVED   "Magnetic Field Vector Z in Body Frame (nT)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return packet.read('BVB')[2] * 1000000000.0
+    GENERIC_READ_CONVERSION_END
+    FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_MAG_NT              0   DERIVED  "Magnitude of the Magnetic Field Vector (nT)"
+      READ_CONVERSION vector_magnitude.rb BVB_X_NT BVB_Y_NT BVB_Z_NT
+    APPEND_ITEM         ORBIT_NORMAL            0   DERIVED  "Unit vector normal to the orbit plane (POSITION_N x VELOCITY_N)"
+      READ_CONVERSION orbit_normal.rb POSITION_N VELOCITY_N
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         SVN                     0   DERIVED  "Sun Unit Vector in Inertial Frame"
+      READ_CONVERSION svn.rb SVB QN
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         BETA                    0   DERIVED  "Beta angle (angle between orbit normal and sun vector)"
+      READ_CONVERSION beta_angle.rb POSITION_N VELOCITY_N SVB QN
+      FORMAT_STRING "%.1f"
+
