@@ -21,6 +21,10 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
     APPEND_ARRAY_ITEM   QN                      64  FLOAT 256 "Body Quaternion in Inertial Frame"
         FORMAT_STRING "%.3f"
     APPEND_ITEM         NEWLINE                 8   UINT  "Newline character"
+    APPEND_ITEM         HVB_MAG                 0   DERIVED  "Magnitude of the Angular Momentum (Nms)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return Math.sqrt(packet.read('HVB')[0]*packet.read('HVB')[0] + packet.read('HVB')[1]*packet.read('HVB')[1] + packet.read('HVB')[2]*packet.read('HVB')[2])
+    GENERIC_READ_CONVERSION_END
     APPEND_ITEM         WN_X_DPS                0   DERIVED   "Body Angular Rate X in Body Frame (deg/s)"
     GENERIC_READ_CONVERSION_START FLOAT 64
       return packet.read('WN')[0] * 180.0/3.141592653589793
@@ -34,6 +38,10 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
     APPEND_ITEM         WN_Z_DPS                0   DERIVED   "Body Angular Rate Z in Body Frame (deg/s)"
     GENERIC_READ_CONVERSION_START FLOAT 64
       return packet.read('WN')[2] * 180.0/3.141592653589793
+    GENERIC_READ_CONVERSION_END
+    APPEND_ITEM         WN_MAG                  0   DERIVED  "Magnitude of the Body Angular Rate in the Body Frame (rad/s)"
+    GENERIC_READ_CONVERSION_START FLOAT 64
+      return Math.sqrt(packet.read('WN')[0]*packet.read('WN')[0] + packet.read('WN')[1]*packet.read('WN')[1] + packet.read('WN')[2]*packet.read('WN')[2])
     GENERIC_READ_CONVERSION_END
     FORMAT_STRING "%.1f"
     APPEND_ITEM         BVB_X_NT                0   DERIVED   "Magnetic Field Vector X in Body Frame (nT)"
@@ -59,6 +67,8 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
     APPEND_ITEM         SVN                     0   DERIVED  "Sun Unit Vector in Inertial Frame"
       READ_CONVERSION svn.rb SVB QN
       FORMAT_STRING "%.3f"
+    APPEND_ITEM         IN_SUN                  0   DERIVED  " > 0 is In Sun, = 0 is Not In Sun (Using sun vector and nominal earth radius)"
+      READ_CONVERSION in_sun.rb POSITION_N SVB QN
     APPEND_ITEM         BETA                    0   DERIVED  "Beta angle (angle between orbit normal and sun vector)"
       READ_CONVERSION beta_angle.rb POSITION_N VELOCITY_N SVB QN
       FORMAT_STRING "%.1f"
