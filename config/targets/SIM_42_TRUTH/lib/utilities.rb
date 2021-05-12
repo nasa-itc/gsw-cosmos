@@ -57,6 +57,14 @@ module Cosmos
             return c
         end
 
+        def self.MxV (m, v)
+            w = []
+            w[0] = m[0][0]*v[0] + m[0][1]*v[1] + m[0][2]*v[2];
+            w[1] = m[1][0]*v[0] + m[1][1]*v[1] + m[1][2]*v[2];
+            w[2] = m[2][0]*v[0] + m[2][1]*v[1] + m[2][2]*v[2];
+            return w
+        end
+
         def self.MTxV (m, v)
             w = []
             w[0] = m[0][0]*v[0] + m[1][0]*v[1] + m[2][0]*v[2];
