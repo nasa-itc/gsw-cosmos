@@ -4,13 +4,15 @@ LABEL_FONT tahoma 16
 NUM_COLUMNS 5
 
 MULTITOOL_START "COSMOS" NULL
-  TOOL "LAUNCH CmdTlmServer -x 827 -y 2 -w 756 -t 475 -c nos3_cmd_tlm_server.txt --system nos3_system.txt"
+  TOOL "LAUNCH CmdTlmServer -c nos3_cmd_tlm_server.txt --system nos3_system.txt"
   DELAY 1
-  TOOL "LAUNCH TlmViewer -x 827 -y 517 -w 424 -t 111 --system nos3_system.txt "
-  TOOL "LAUNCH PacketViewer -x 827 -y 669 -w 422 -t 450 --system nos3_system.txt"
-  #TOOL "LAUNCH ScriptRunner -x 4 -y 2 -w 805 -t 545 --system nos3_system.txt"
-  TOOL "LAUNCH DataViewer -x 4 -y 2 -w 805 -t 545 --config nos3_data_viewer.txt --system nos3_system.txt"
-  TOOL "LAUNCH CmdSender -x 4 -y 586 -w 805 -t 533 --system nos3_system.txt"
+  TOOL "LAUNCH CmdSender --system nos3_system.txt"
+  #TOOL "LAUNCH DataViewer --config nos3_data_viewer.txt --system nos3_system.txt"
+  TOOL "LAUNCH PacketViewer --system nos3_system.txt"
+  #TOOL "LAUNCH ScriptRunner --system nos3_system.txt"
+  #TOOL "LAUNCH TestRunner --config nos3_test_runner.txt --system nos3_system.txt"
+  #TOOL "LAUNCH TlmGrapher --config nos3.txt --system nos3_system.txt --start"
+  #TOOL "LAUNCH TlmViewer  --system nos3_system.txt"
 MULTITOOL_END
 TOOL "Command and Telemetry Server" "LAUNCH CmdTlmServer" "cts.png" --config nos3_cmd_tlm_server.txt --system nos3_system.txt
 TOOL "Replay" "LAUNCH Replay" "replay.png" --system nos3_system.txt
