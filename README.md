@@ -1,5 +1,5 @@
 # SmallSat COSMOS Database
-This repository is to be used to capture command and telemetry definitions, test procedures / scripts, and operational scripts
+This repository is to be used to capture command and telemetry definitions, test procedures / scripts, and operational scripts.
 
 ## Launching a Specific Configuration
 
@@ -7,7 +7,11 @@ From a terminal in this directory you have the following configuration options:
 * Baseline (all targets)
   - `ruby Launcher`
 * NOS3
+  - `export MISSION_NAME=$(echo "NOS3")`
+  - `export PROCESSOR_ENDIANNESS=$(echo "LITTLE_ENDIAN")`
   - `ruby Launcher -c nos3_launcher.txt --system nos3_system.txt`
+
+If the `PROCESSOR_ENDIANNESS` environmental variable is not explicitly set, it will default to `"LITTLE_ENDIAN"`.
 
 ## Adding Components / Targets 
 Each component should have it's own target directory.
