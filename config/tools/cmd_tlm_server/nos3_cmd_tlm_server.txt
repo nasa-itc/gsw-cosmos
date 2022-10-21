@@ -2,7 +2,7 @@ TITLE 'COSMOS Command and Telemetry Server - NOS3 Configuration'
 
 BACKGROUND_TASK cfdp_engine_task.rb 
 
-INTERFACE MISSION_INT udp_interface.rb 127.0.0.1 5010 5011 nil nil 128 nil nil
+INTERFACE MISSION_INT udp_interface.rb 192.168.100.4 5010 5011 nil nil 128 nil nil
   RECONNECT_DELAY 1
   TARGET ARDUCAM
   TARGET CFS
