@@ -35,9 +35,9 @@ COMMAND CF CF_PLAYBACK_FILE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This comma
   APPEND_PARAMETER PRESERVE 8 UINT 0 1 1 "On success, delete (0) or keep (1)"
     STATE "Delete" 0
     STATE "Keep" 1
-  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "24" "Destination ID - 2 bytes"
-  APPEND_PARAMETER SRCFILENAME 512 STRING "/ram/" "Path/Filename to send"
-  APPEND_PARAMETER DSTFILENAME 512 STRING "/tmp/" "Path/Filename at destination"
+  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "0.21" "Destination ID - 2 bytes"
+  APPEND_PARAMETER SRCFILENAME 512 STRING "/data/" "Path/Filename to send"
+  APPEND_PARAMETER DSTFILENAME 512 STRING "/tmp/data" "Path/Filename at destination"
 
 COMMAND CF CF_PLAYBACK_DIR <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command issues a Playback_Dir command to FSW."
   APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x18B3 "CCSDS Packet Identification" BIG_ENDIAN
@@ -55,9 +55,9 @@ COMMAND CF CF_PLAYBACK_DIR <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This comman
   APPEND_PARAMETER PRESERVE 8 UINT 0 1 1 "On success, delete (0) or keep (1)"
     STATE "Delete" 0
     STATE "Keep" 1
-  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "24" "Destination ID - 2 bytes"
-  APPEND_PARAMETER SRCPATH 512 STRING "/ram/" "Directory to send"
-  APPEND_PARAMETER DSTPATH 512 STRING "/tmp/" "Directory to receive files at destination"
+  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "0.21" "Destination ID - 2 bytes"
+  APPEND_PARAMETER SRCPATH 512 STRING "/data/" "Directory to send"
+  APPEND_PARAMETER DSTPATH 512 STRING "/tmp/data" "Directory to receive files at destination"
 
 COMMAND CF CF_FREEZE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "CF Freeze Active Transactions Command."
   APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x18B3 "CCSDS Packet Identification" BIG_ENDIAN
@@ -148,7 +148,7 @@ COMMAND CF CF_SET_POLL_PARAMETER <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "CF Se
     STATE "Delete" 0
     STATE "Keep" 1
   APPEND_ARRAY_PARAMETER SPARE 8 UINT 24 "Spare - Unused"
-  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "24" "Destination ID - 2 bytes"
+  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "0.21" "Destination ID - 2 bytes"
   APPEND_PARAMETER SRCPATH 512 STRING "/ram/" "Path to poll"
   APPEND_PARAMETER DSTPATH 512 STRING "/tmp/" "Path to store files on ground"
 
