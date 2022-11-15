@@ -17,7 +17,7 @@ end
 
 class Cfs_Test < Cosmos::TestSuite
     def initialize
-      super()
+        super()
       add_test('Aliveness_Test')
     end
 end

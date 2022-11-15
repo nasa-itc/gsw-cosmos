@@ -1,4 +1,17 @@
-TELEMETRY CFS CFE_HK_COMBINED_PKT1 LITTLE_ENDIAN "Housekeeping Combined Packet 1"
+TELEMETRY HK HK_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "HK Application housekeeping Packet"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x089B "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CMDCOUNTER 8 UINT "Count of valid commands received."
+  APPEND_ITEM ERRCOUNTER 8 UINT "Count of invalid commands received."
+  APPEND_ITEM PADDING 16 UINT "Padding to force 32 bit alignment."
+  APPEND_ITEM COMBINEDPACKETSSENT 16 UINT "Count of combined tlm pkts sent."
+  APPEND_ITEM MISSINGDATACTR 16 UINT "Number of times missing data was detected."
+  APPEND_ITEM MEMPOOLHANDLE 32 UINT "Memory pool handle used to get mempool diags."
+
+TELEMETRY HK CFE_HK_COMBINED_PKT1 <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping Combined Packet 1"
   APPEND_ID_ITEM CCSDS_STREAMID   16 UINT 0x089C "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE      16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH        16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
