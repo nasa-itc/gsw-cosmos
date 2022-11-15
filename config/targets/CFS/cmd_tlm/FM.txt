@@ -75,7 +75,7 @@ COMMAND FM FM_GET_DIR_FILE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This comman
   APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
   APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
   APPEND_PARAMETER FILENAME 512 STRING "default" "Filename." 
-  APPEND_PARAMETER GETSIZETIMEMODE 32 UINT MIN_UINT32 MAX_UINT32 0 "Option to query size, time, and mode of files (CPU intensive)" 
+  APPEND_PARAMETER GETSIZETIMEMODE 32 UINT MIN_UINT32 MAX_UINT32 1 "Option to query size, time, and mode of files (CPU intensive)" 
 
 COMMAND FM FM_GET_DIR_PKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command creates a telemetry packet FM_DirListPkt_t that contains a listing of the entries in the specified directory. Since the packet will likely hold fewer entries than will be possible in a directory, the command also provides an index argument to define which entry in the directory is the first entry reported in the telemetry packet. After reading the directory list and skipping entries until reaching the index of the first entry reported, the remaining entries in the packet are filled sequentially until either the packet is full or until there are no more entries in the directory. The first entry index is zero based - thus, when the first entry index is zero the first directory entry will be the first packet entry. The number of entries per packet FM_DIR_LIST_PKT_ENTRIES is a platform configuration definition. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but reading the directory will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
   APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
@@ -85,7 +85,7 @@ COMMAND FM FM_GET_DIR_PKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command
   APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
   APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
   APPEND_PARAMETER DIRLISTOFFSET 32 UINT MIN_UINT32 MAX_UINT32 0 "Index of 1st dir entry to put in packet." 
-  APPEND_PARAMETER GETSIZETIMEMODE 32 UINT MIN_UINT32 MAX_UINT32 0 "Option to query size, time, and mode of files (CPU intensive)" 
+  APPEND_PARAMETER GETSIZETIMEMODE 32 UINT MIN_UINT32 MAX_UINT32 1 "Option to query size, time, and mode of files (CPU intensive)" 
 
 COMMAND FM FM_GET_FILE_INFO <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command creates an FM file information telemetry packet for the source file. The file information packet includes status that indicates whether source is a file that is open or closed, a directory, or does not exist. The file information data also includes a CRC, file size, last modify time and the source name. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but collecting the status data and calculating the CRC will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
   APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN

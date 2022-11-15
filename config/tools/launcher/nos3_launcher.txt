@@ -10,7 +10,7 @@ MULTITOOL_START "COSMOS" NULL
   #TOOL "LAUNCH DataViewer --config nos3_data_viewer.txt --system nos3_system.txt"
   TOOL "LAUNCH PacketViewer --system nos3_system.txt"
   #TOOL "LAUNCH ScriptRunner --system nos3_system.txt"
-  #TOOL "LAUNCH TestRunner --config nos3_test_runner.txt --system nos3_system.txt"
+  TOOL "LAUNCH TestRunner --config nos3_test_runner.txt --system nos3_system.txt"
   #TOOL "LAUNCH TlmGrapher --config nos3.txt --system desired_truth_angles.txt --start"
   #TOOL "LAUNCH TlmViewer  --system nos3_system.txt"
 MULTITOOL_END
@@ -25,7 +25,7 @@ LABEL "Commanding and Scripting"
 TOOL "Command Sender" "LAUNCH CmdSender" "cmd_sender.png" --system nos3_system.txt
 TOOL "Command Sequence" "LAUNCH CmdSequence" "cmd_sequence.png" --system nos3_system.txt
 TOOL "Script Runner" "LAUNCH ScriptRunner" "script_runner.png" --system nos3_system.txt
-TOOL "Test Runner" "LAUNCH TestRunner" "test_runner.png" --system nos3_system.txt
+TOOL "Test Runner" "LAUNCH TestRunner" "test_runner.png" --config nos3_test_runner.txt --system nos3_system.txt
 TOOL "Command Extractor" "LAUNCH CmdExtractor" "cmd_extractor.png" --system nos3_system.txt
 
 DIVIDER
