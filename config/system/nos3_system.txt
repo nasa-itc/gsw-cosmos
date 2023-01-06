@@ -2,7 +2,6 @@
 # DECLARE_TARGET target_name [substitute_name]
 
 DECLARE_TARGET CFS
-#DECLARE_TARGET CLYDE_EPS
 DECLARE_TARGET CI_DEBUG
 DECLARE_TARGET CMD_UTIL
 DECLARE_TARGET MISSION
@@ -22,6 +21,7 @@ DECLARE_TARGET CFDP_TEST CFDP_TEST_RX
 # Components
 
 DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM
+DECLARE_TARGET ../../../../components/generic_eps/gsw/GENERIC_EPS GENERIC_EPS
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615
 DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE
@@ -32,6 +32,7 @@ DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE
 DECLARE_TARGET CFS CFS_RADIO
 DECLARE_TARGET CMD_UTIL CMD_UTIL_RADIO
 DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM_RADIO
+DECLARE_TARGET ../../../../components/generic_eps/gsw/GENERIC_EPS GENERIC_EPS_RADIO
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL_RADIO
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615_RADIO
 DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE_RADIO
