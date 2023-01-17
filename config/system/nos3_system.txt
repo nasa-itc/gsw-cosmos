@@ -25,6 +25,7 @@ DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615
 DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE
+DECLARE_TARGET ../../../../components/generic_fss/gsw/GENERIC_FSS GENERIC_FSS
 
 
 # Copies for _RADIO
@@ -35,6 +36,7 @@ DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM_RADIO
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL_RADIO
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615_RADIO
 DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE_RADIO
+DECLARE_TARGET ../../../../components/generic_fss/gsw/GENERIC_FSS GENERIC_FSS_RADIO
 
 
 # Listen Hosts - Ip addresses or hostnames to listen on when running the tools
