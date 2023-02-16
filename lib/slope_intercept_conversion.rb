@@ -11,7 +11,6 @@ module Cosmos
       @intercept = intercept.to_f
     end
     def call(value, packet, buffer)
-      v =  * 2.50/1024
       # Slope
       value = @slope * packet.read(@packet_field)
       # Intercept
