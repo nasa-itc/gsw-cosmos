@@ -34,6 +34,7 @@ DECLARE_TARGET CMD_UTIL CMD_UTIL_RADIO
 DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM_RADIO
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL_RADIO
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615_RADIO
+DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE_RADIO
 DECLARE_TARGET ../../../../components/generic_css/gsw/GENERIC_CSS GENERIC_CSS_RADIO
 
 
