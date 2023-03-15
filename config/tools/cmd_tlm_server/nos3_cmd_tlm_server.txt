@@ -18,7 +18,7 @@ INTERFACE DEBUG udp_interface.rb 127.0.0.1 5012 5013 nil nil 128 nil nil
   TARGET SAMPLE
   TARGET TO_DEBUG
 
-INTERFACE RADIO udp_interface.rb 127.0.0.1 5010 5011 nil nil 128 nil nil
+INTERFACE RADIO udp_interface.rb 127.0.0.1 6010 6011 nil nil 128 nil nil
   RECONNECT_DELAY 1
   TARGET ARDUCAM_RADIO
   TARGET CFS_RADIO
