@@ -24,6 +24,7 @@ DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM
 DECLARE_TARGET ../../../../components/generic_css/gsw/GENERIC_CSS GENERIC_CSS
 DECLARE_TARGET ../../../../components/generic_eps/gsw/GENERIC_EPS GENERIC_EPS
 DECLARE_TARGET ../../../../components/generic_fss/gsw/GENERIC_FSS GENERIC_FSS
+DECLARE_TARGET ../../../../components/generic_imu/gsw/GENERIC_IMU GENERIC_IMU
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL
 DECLARE_TARGET ../../../../components/generic_radio/gsw/GENERIC_RADIO GENERIC_RADIO
 DECLARE_TARGET ../../../../components/generic_torquer/gsw/GENERIC_TORQUER GENERIC_TORQUER
@@ -38,6 +39,7 @@ DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM_RADIO
 DECLARE_TARGET ../../../../components/generic_css/gsw/GENERIC_CSS GENERIC_CSS_RADIO
 DECLARE_TARGET ../../../../components/generic_eps/gsw/GENERIC_EPS GENERIC_EPS_RADIO
 DECLARE_TARGET ../../../../components/generic_fss/gsw/GENERIC_FSS GENERIC_FSS_RADIO
+DECLARE_TARGET ../../../../components/generic_imu/gsw/GENERIC_IMU GENERIC_IMU_RADIO
 DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL_RADIO
 DECLARE_TARGET ../../../../components/generic_radio/gsw/GENERIC_RADIO GENERIC_RADIO_RADIO
 DECLARE_TARGET ../../../../components/generic_torquer/gsw/GENERIC_TORQUER GENERIC_TORQUER_RADIO
