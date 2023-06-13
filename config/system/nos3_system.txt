@@ -31,6 +31,7 @@ DECLARE_TARGET ../../../../components/generic_radio/gsw/GENERIC_RADIO GENERIC_RA
 DECLARE_TARGET ../../../../components/generic_torquer/gsw/GENERIC_TORQUER GENERIC_TORQUER
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615
 DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE
+DECLARE_TARGET ../../../../components/generic_adcs/gsw/GENERIC_ADCS GENERIC_ADCS
 
 # Copies for _RADIO
 
@@ -47,7 +48,7 @@ DECLARE_TARGET ../../../../components/generic_radio/gsw/GENERIC_RADIO GENERIC_RA
 DECLARE_TARGET ../../../../components/generic_torquer/gsw/GENERIC_TORQUER GENERIC_TORQUER_RADIO
 DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615_RADIO
 DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE_RADIO
-
+DECLARE_TARGET ../../../../components/generic_adcs/gsw/GENERIC_ADCS GENERIC_ADCS_RADIO
 
 # Listen Hosts - Ip addresses or hostnames to listen on when running the tools
 LISTEN_HOST CTS_API 127.0.0.1
