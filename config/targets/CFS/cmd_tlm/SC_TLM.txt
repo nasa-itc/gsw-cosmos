@@ -4,6 +4,7 @@ TELEMETRY SC SC_HKTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping Pac
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM ATSNUMBER 8 UINT "current ATS number 1 = ATS A, 2 = ATS B"
     STATE A 0
     STATE B 1

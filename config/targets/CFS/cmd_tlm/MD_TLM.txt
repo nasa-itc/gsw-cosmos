@@ -4,6 +4,7 @@ TELEMETRY MD MD_DWELLPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Memory Dwell 
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM TABLEID 8 UINT "TableId from 1 to MD_NUM_DWELL_TABLES."
   APPEND_ITEM ADDRCOUNT 8 UINT "Number of addresses being sent - 1..MD_DWELL_TABLE_SIZE valid."
   APPEND_ITEM BYTECOUNT 16 UINT "Number of bytes of dwell data contained in packet."
@@ -18,6 +19,7 @@ TELEMETRY MD MD_HKTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Memory Dwell HK 
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM INVALIDCMDCNTR 8 UINT "Count of invalid commands received."
   APPEND_ITEM VALIDCMDCNTR 8 UINT "Count of valid commands received."
   APPEND_ITEM DWELLENABLEDMASK 16 UINT "Each bit in bit mask enables a table 0x0001=TBL1 enable bit,0x0002=TBL2 enable bit, 0x0004=TBL3 enable bit,0x0008=TBL4 enable bit, etc."

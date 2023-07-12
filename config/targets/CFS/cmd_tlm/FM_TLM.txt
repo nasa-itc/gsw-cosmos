@@ -4,6 +4,7 @@ TELEMETRY FM FM_DIRLISTPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Get Directo
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM DIRNAME 512 STRING "Directory Name."
   APPEND_ITEM TOTALFILES 32 UINT "Number of files in the directory."
   APPEND_ITEM PACKETFILES 32 UINT "Number of files in this packet."
@@ -95,6 +96,7 @@ TELEMETRY FM FM_FILEINFOPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Get File I
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM FILESTATUS 8 UINT "Status indicating whether the file is open or closed."
   APPEND_ITEM CRCCOMPUTED 8 UINT "Flag indicating whether a CRC was computed or not."
   APPEND_ITEM SPARE1 8 UINT "Structure padding."
@@ -111,6 +113,7 @@ TELEMETRY FM FM_FREESPACEPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Get Free 
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM FREESPACE1A 32 UINT "First 32 bit portion of a 64 bit value."
   APPEND_ITEM FREESPACE1B 32 UINT "Second 32 bit portion of a 64 bit value."
   APPEND_ITEM NAME1 512 STRING "File system name."
@@ -142,6 +145,7 @@ TELEMETRY FM FM_HOUSEKEEPINGPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housek
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM COMMANDCOUNTER 8 UINT "Application command counter."
   APPEND_ITEM COMMANDERRCOUNTER 8 UINT "Application command error counter."
   APPEND_ITEM SPARE 8 UINT "Placeholder for unused command warning counter."
@@ -159,6 +163,7 @@ TELEMETRY FM FM_OPENFILESPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Get Open 
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM NUMOPENFILES 32 UINT "Number of files opened via cFE."
   <% (1..50).each do |x| %>
     APPEND_ITEM LOGICAL_NAME_<%= x%> 512 STRING "File system name."
