@@ -2,7 +2,7 @@ require "cosmos/interfaces/protocols/protocol"
 require "cfdp_engine"
 require 'cfdp_vars'
 
-module Cosmos
+module OpenC3
   # Protocol which permanently overrides an item value such that reading the
   # item returns the overriden value. Methods are prefixed with underscores
   # so the API can include the original name which calls out to these

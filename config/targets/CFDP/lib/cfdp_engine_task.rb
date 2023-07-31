@@ -3,7 +3,7 @@ require "cosmos/tools/cmd_tlm_server/background_task"
 require "cfdp_engine"
 require "cfdp_vars"
 
-module Cosmos
+module OpenC3
 
 	class CfdpEngineTask < BackgroundTask
 
