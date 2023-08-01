@@ -4,32 +4,44 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNTER 8 UINT "The ES Application Command Counter."
   APPEND_ITEM ERRCOUNTER 8 UINT "The ES Application Command Error Counter."
+
   APPEND_ITEM CFECORECHECKSUM 16 UINT "Checksum of cFE Core Code."
   APPEND_ITEM CFEMAJORVERSION 8 UINT "Major Version Number of cFE."
   APPEND_ITEM CFEMINORVERSION 8 UINT "Minor Version Number of cFE."
   APPEND_ITEM CFEREVISION 8 UINT "Sub-Minor Version Number of cFE."
   APPEND_ITEM CFEMISSIONREVISION 8 UINT "Mission Version Number of cFE."
+  
   APPEND_ITEM OSALMAJORVERSION 8 UINT "OS Abstraction Layer Major Version Number."
   APPEND_ITEM OSALMINORVERSION 8 UINT "OS Abstraction Layer Minor Version Number."
   APPEND_ITEM OSALREVISION 8 UINT "OS Abstraction Layer Revision Number."
   APPEND_ITEM OSALMISSIONREVISION 8 UINT "OS Abstraction Layer MissionRevision Number."
+  
+  APPEND_ITEM PSP_MAJORVERSION 8 UINT "Platform Support Package Major Version Number."
+  APPEND_ITEM PSP_MINORVERSION 8 UINT "Platform Support Package Minor Version Number."
+  APPEND_ITEM PSP_REVISION 8 UINT "Platform Support Package Revision Number."
+  APPEND_ITEM PSP_MISSIONREVISION 8 UINT "Platform Support Package MissionRevision Number."
+  
   APPEND_ITEM SYSLOGBYTESUSED 32 UINT "Total number of bytes used in system log."
   APPEND_ITEM SYSLOGSIZE 32 UINT "Total size of the system log."
   APPEND_ITEM SYSLOGENTRIES 32 UINT "Number of entries in the system log."
   APPEND_ITEM SYSLOGMODE 32 UINT "Write/Overwrite Mode."
+
   APPEND_ITEM ERLOGINDEX 32 UINT "Current index of the ER Log (wraps around)."
   APPEND_ITEM ERLOGENTRIES 32 UINT "Number of entries made in the ER Log since the power on."
   APPEND_ITEM REGISTEREDCOREAPPS 32 UINT "Number of Applications registered with ES."
   APPEND_ITEM REGISTEREDEXTERNALAPPS 32 UINT "Number of Applications registered with ES."
   APPEND_ITEM REGISTEREDTASKS 32 UINT "Number of Tasks ( main AND child tasks ) registered with ES."
   APPEND_ITEM REGISTEREDLIBS 32 UINT "Number of Libraries registered with ES."
+  
   APPEND_ITEM RESETTYPE 32 UINT "Reset type ( PROCESSOR or POWERON )."
   APPEND_ITEM RESETSUBTYPE 32 UINT "Reset Sub Type."
   APPEND_ITEM PROCESSORRESETS 32 UINT "Number of processor resets since last power on."
   APPEND_ITEM MAXPROCESSORRESETS 32 UINT "Max processor resets before a power on is done."
   APPEND_ITEM BOOTSOURCE 32 UINT "Boot source ( as provided from BSP )."
+
   APPEND_ITEM PERFSTATE 32 UINT "Current state of Performance Analyzer."
   APPEND_ITEM PERFMODE 32 UINT "Current mode of Performance Analyzer."
   APPEND_ITEM PERFTRIGGERCOUNT 32 UINT "Number of Times Perfomance Analyzer has Triggered."
@@ -53,6 +65,7 @@ TELEMETRY CFS CFE_ES_ONEAPPTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Single 
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM APPINFO_APPID 32 UINT "Application ID for this Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
   APPEND_ITEM APPINFO_TYPE 32 UINT "The type of App: CORE or EXTERNAL. (Parent: For more information, see CFE_ES_AppInfo_t.)"
   APPEND_ITEM APPINFO_NAME 160 STRING "The Registered Name of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
@@ -81,6 +94,7 @@ TELEMETRY CFS CFE_ES_POOLSTATSTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Memo
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM POOLHANDLE 32 UINT "Handle of memory pool whose stats are being telemetered."
   APPEND_ITEM POOLSTATS_POOLSIZE 32 UINT "Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
   APPEND_ITEM POOLSTATS_NUMBLOCKSREQUESTED 32 UINT "Number of times a memory block has been allocated. (Parent: For more info, see CFE_ES_MemPoolStats_t.)"

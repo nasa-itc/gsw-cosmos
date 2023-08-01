@@ -4,6 +4,7 @@ TELEMETRY CFS CFE_EVS_PACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Event Mes
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM PACKETID_APPNAME 160 STRING "Application name. (Parent: Event packet information.)"
   APPEND_ITEM PACKETID_EVENTID 16 UINT "Numerical event identifier. (Parent: Event packet information.)"
   APPEND_ITEM PACKETID_EVENTTYPE 16 UINT "Numerical event type identifier. (Parent: Event packet information.)"
@@ -19,6 +20,7 @@ TELEMETRY CFS CFE_EVS_TLMPKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Event Ser
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM COMMANDCOUNTER 8 UINT "EVS Command Counter."
   APPEND_ITEM COMMANDERRCOUNTER 8 UINT "EVS Command Error Counter."
   APPEND_ITEM MESSAGEFORMATMODE 8 UINT "Event message format mode (short/long)."
