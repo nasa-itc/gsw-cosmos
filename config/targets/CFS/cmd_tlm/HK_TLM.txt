@@ -4,6 +4,7 @@ TELEMETRY HK HK_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "HK Applicatio
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNTER 8 UINT "Count of valid commands received."
   APPEND_ITEM ERRCOUNTER 8 UINT "Count of invalid commands received."
   APPEND_ITEM PADDING 16 UINT "Padding to force 32 bit alignment."
@@ -17,6 +18,7 @@ TELEMETRY HK CFE_HK_COMBINED_PKT1 <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Hous
   APPEND_ITEM CCSDS_LENGTH        16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS       32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS       16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE         32 UINT ""
   APPEND_ITEM COMMANDCOUNTER       8 UINT "EVS  Command Counter."
   APPEND_ITEM COMMANDERRCOUNTER    8 UINT "EVS  Command Error Counter."
   APPEND_ITEM MESSAGEFORMATMODE    8 UINT "EVS  Event message format mode (short/long)."
