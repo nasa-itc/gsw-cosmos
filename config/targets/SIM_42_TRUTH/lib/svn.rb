@@ -1,7 +1,7 @@
-require 'cosmos/conversions/conversion'
+require 'openc3/conversions/conversion'
 require 'utilities'
 
-module Cosmos
+module OpenC3
   class Svn < Conversion
     def initialize(*args)
       super()

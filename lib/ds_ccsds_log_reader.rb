@@ -11,7 +11,7 @@
 require 'cosmos/packet_logs/packet_log_reader'
 require 'cosmos/ccsds/ccsds_packet'
 
-module Cosmos
+module OpenC3
 
   # Reads a CCSDS packet log of either commands or telemetry.
   class DsCcsdsLogReader < PacketLogReader
@@ -113,4 +113,4 @@ module Cosmos
 
   end # class DsCcsdsLogReader
 
-end # module Cosmos
+end # module OpenC3

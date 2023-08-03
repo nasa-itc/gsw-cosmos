@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-require "cosmos_cfs_config/version"
-
-module CosmosCfsConfig
+module OpenC3CfsConfig
     PROCESSOR_ENDIAN = ENV.fetch('PROCESSOR_ENDIANNESS', 'LITTLE_ENDIAN')
 end

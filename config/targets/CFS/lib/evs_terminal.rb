@@ -1,7 +1,7 @@
 require 'cosmos'
 require 'cosmos/tools/data_viewer/data_viewer_component'
 
-module Cosmos
+module OpenC3
 
     class EvsTerminal < DataViewerComponent
 
