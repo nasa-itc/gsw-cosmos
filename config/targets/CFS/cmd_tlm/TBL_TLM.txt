@@ -4,6 +4,7 @@ TELEMETRY CFS CFE_TBL_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Table S
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNTER 8 UINT "Count of valid commands received."
   APPEND_ITEM ERRCOUNTER 8 UINT "Count of invalid commands received."
   APPEND_ITEM NUMTABLES 16 UINT "Number of Tables Registered."
@@ -33,6 +34,7 @@ TELEMETRY CFS CFE_TBL_TBLREGPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Tab
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM SIZE 32 UINT "Size, in bytes, of Table."
   APPEND_ITEM CRC 32 UINT "Most recently calculated CRC of Table."
   APPEND_ITEM ACTIVEBUFFERADDR 32 UINT "Address of Active Buffer."

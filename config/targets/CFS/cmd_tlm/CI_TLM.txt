@@ -4,5 +4,6 @@ TELEMETRY CFS CI_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping
   APPEND_ITEM CCSDS_LENGTH      16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM CCSDS_SECONDS     32 UINT "CCSDS Telemetry Secondary Header (seconds)"
   APPEND_ITEM CCSDS_SUBSECS     16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE       32 UINT ""
   APPEND_ITEM CMDCOUNTER        16 UINT "Count of all commands received."
   APPEND_ITEM ERRCOUNTER        16 UINT "Count of command errors."

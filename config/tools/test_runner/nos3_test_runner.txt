@@ -1,4 +1,4 @@
-REQUIRE_UTILITY 'sample_test'
+REQUIRE_UTILITY 'mission_test'
 
 LINE_DELAY 0
 ALLOW_DEBUG
