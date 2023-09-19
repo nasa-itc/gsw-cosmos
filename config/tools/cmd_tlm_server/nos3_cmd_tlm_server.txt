@@ -2,7 +2,7 @@ TITLE 'COSMOS Command and Telemetry Server - NOS3 Configuration'
 
 BACKGROUND_TASK cfdp_engine_task.rb 
 
-INTERFACE DEBUG udp_interface.rb 127.0.0.1 5012 5013 nil nil 128 nil nil
+INTERFACE DEBUG udp_interface.rb nos_fsw 5012 5013 nil nil 128 nil nil
   RECONNECT_DELAY 1
   TARGET CI_DEBUG
   TARGET ARDUCAM
@@ -21,7 +21,7 @@ INTERFACE DEBUG udp_interface.rb 127.0.0.1 5012 5013 nil nil 128 nil nil
   TARGET TO_DEBUG
   TARGET GENERIC_ADCS
 
-INTERFACE RADIO udp_interface.rb 127.0.0.1 6010 6011 nil nil 128 nil nil
+INTERFACE RADIO udp_interface.rb radio_sim 6010 6011 nil nil 128 nil nil
   RECONNECT_DELAY 1
   TARGET ARDUCAM_RADIO
   TARGET CFS_RADIO
@@ -48,5 +48,5 @@ INTERFACE RADIO udp_interface.rb 127.0.0.1 6010 6011 nil nil 128 nil nil
 
 INTERFACE_TARGET CFDP cmd_tlm_server.txt
 
-INTERFACE SIM_42_TRUTH_INT udp_interface.rb 127.0.0.1 5110 5111 nil nil 128 nil nil
+INTERFACE SIM_42_TRUTH_INT udp_interface.rb truth42sim 5110 5111 nil nil 128 nil nil
   TARGET SIM_42_TRUTH
