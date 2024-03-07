@@ -4,13 +4,13 @@ LABEL_FONT tahoma 16
 NUM_COLUMNS 5
 
 MULTITOOL_START "COSMOS" NULL
-  TOOL "LAUNCH CmdTlmServer -c cmd_tlm_server.txt"
-  DELAY 1
-  TOOL "LAUNCH CmdSender"
+  TOOL "LAUNCH CmdTlmServer -w 850 -t 350 -c cmd_tlm_server.txt" 
+  DELAY 5
+  TOOL "LAUNCH CmdSender -w 500 -t 300"
   #TOOL "LAUNCH DataViewer --config data_viewer.txt"
-  TOOL "LAUNCH PacketViewer"
+  TOOL "LAUNCH PacketViewer -w 400 -t 450"
   #TOOL "LAUNCH ScriptRunner"
-  TOOL "LAUNCH TestRunner --config test_runner.txt"
+  #TOOL "LAUNCH TestRunner --config test_runner.txt"
   #TOOL "LAUNCH TlmGrapher --config nos3.txt --system desired_truth_angles.txt --start"
   #TOOL "LAUNCH TlmViewer "
 MULTITOOL_END
