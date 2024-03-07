@@ -1,6 +1,6 @@
-require 'openc3/conversions/conversion'
+require 'cosmos/conversions/conversion'
 
-module OpenC3
+module Cosmos
   class NadirInBody < Conversion
     def initialize(*args)
       super()

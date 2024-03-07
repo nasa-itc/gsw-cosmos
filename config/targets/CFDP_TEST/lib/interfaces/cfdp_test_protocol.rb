@@ -1,7 +1,7 @@
 require 'cosmos/interfaces/protocols/protocol'
 require 'cfdp/cfdp'
 
-module OpenC3
+module Cosmos
 
   @received_pdu_counter = Hash.new
   @sent_pdu_counter = Hash.new
@@ -56,7 +56,7 @@ module OpenC3
   end
 end
 
-module OpenC3
+module Cosmos
   # Protocol which permanently overrides an item value such that reading the
   # item returns the overriden value. Methods are prefixed with underscores
   # so the API can include the original name which calls out to these
