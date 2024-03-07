@@ -1,8 +1,58 @@
 # Declare Targets that make up the system
 # DECLARE_TARGET target_name [substitute_name]
 
-AUTO_DECLARE_TARGETS
-# DECLARE_TARGET SYSTEM
+DECLARE_TARGET CFS
+DECLARE_TARGET CI_DEBUG
+DECLARE_TARGET CMD_UTIL
+DECLARE_TARGET MISSION
+DECLARE_TARGET SIM_42_TRUTH
+DECLARE_TARGET TO_DEBUG
+
+
+# CFDP 
+
+DECLARE_TARGET CFDP 
+DECLARE_TARGET PDU PDU_TX
+DECLARE_TARGET PDU PDU_RX
+DECLARE_TARGET CFDP_TEST CFDP_TEST_TX
+DECLARE_TARGET CFDP_TEST CFDP_TEST_RX
+
+
+# Components
+
+DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM
+DECLARE_TARGET ../../../../components/generic_css/gsw/GENERIC_CSS GENERIC_CSS
+DECLARE_TARGET ../../../../components/generic_eps/gsw/GENERIC_EPS GENERIC_EPS
+DECLARE_TARGET ../../../../components/generic_fss/gsw/GENERIC_FSS GENERIC_FSS
+DECLARE_TARGET ../../../../components/generic_imu/gsw/GENERIC_IMU GENERIC_IMU
+DECLARE_TARGET ../../../../components/generic_mag/gsw/GENERIC_MAG GENERIC_MAG
+DECLARE_TARGET ../../../../components/generic_radio/gsw/GENERIC_RADIO GENERIC_RADIO
+DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL
+DECLARE_TARGET ../../../../components/generic_star_tracker/gsw/GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER
+DECLARE_TARGET ../../../../components/generic_torquer/gsw/GENERIC_TORQUER GENERIC_TORQUER
+DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615
+DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE
+DECLARE_TARGET ../../../../components/syn/gsw/SYN SYNOPSIS
+DECLARE_TARGET ../../../../components/generic_adcs/gsw/GENERIC_ADCS GENERIC_ADCS 
+
+# Copies for _RADIO
+
+DECLARE_TARGET CFS CFS_RADIO
+DECLARE_TARGET CMD_UTIL CMD_UTIL_RADIO
+DECLARE_TARGET ../../../../components/arducam/gsw/ARDUCAM ARDUCAM_RADIO
+DECLARE_TARGET ../../../../components/generic_css/gsw/GENERIC_CSS GENERIC_CSS_RADIO
+DECLARE_TARGET ../../../../components/generic_eps/gsw/GENERIC_EPS GENERIC_EPS_RADIO
+DECLARE_TARGET ../../../../components/generic_fss/gsw/GENERIC_FSS GENERIC_FSS_RADIO
+DECLARE_TARGET ../../../../components/generic_imu/gsw/GENERIC_IMU GENERIC_IMU_RADIO
+DECLARE_TARGET ../../../../components/generic_mag/gsw/GENERIC_MAG GENERIC_MAG_RADIO
+DECLARE_TARGET ../../../../components/generic_radio/gsw/GENERIC_RADIO GENERIC_RADIO_RADIO
+DECLARE_TARGET ../../../../components/generic_reaction_wheel/gsw/GENERIC_REACTION_WHEEL GENERIC_REACTION_WHEEL_RADIO
+DECLARE_TARGET ../../../../components/generic_star_tracker/gsw/GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_RADIO
+DECLARE_TARGET ../../../../components/generic_torquer/gsw/GENERIC_TORQUER GENERIC_TORQUER_RADIO
+DECLARE_TARGET ../../../../components/novatel_oem615/gsw/NOVATEL_OEM615 NOVATEL_OEM615_RADIO
+DECLARE_TARGET ../../../../components/sample/gsw/SAMPLE SAMPLE_RADIO
+DECLARE_TARGET ../../../../components/syn/gsw/SYN SYNOPSIS_RADIO
+DECLARE_TARGET ../../../../components/generic_adcs/gsw/GENERIC_ADCS GENERIC_ADCS_RADIO
 
 # Listen Hosts - Ip addresses or hostnames to listen on when running the tools
 LISTEN_HOST CTS_API 127.0.0.1
