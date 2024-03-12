@@ -30,7 +30,7 @@ module CFDP
             when 7 then CFDP::PDUMetadata.new(payloadData)
             when 8 then CFDP::PDUNAK.new(payloadData)
             when 9 then raise "Not implemented Prompt PDU"
-            when 10 then raise "Not implemented Keep Alive PDU"
+            when 12 then raise "Not implemented Keep Alive PDU"
             else raise "Unknown directive code"
           end
         end

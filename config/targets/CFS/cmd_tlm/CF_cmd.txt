@@ -19,23 +19,23 @@ COMMAND CF CF_RESET_COUNTERS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This comm
     STATE "DOWN" 4
   APPEND_ARRAY_PARAMETER SPARE 8 UINT 24 "Spare - Unused"
 
-COMMAND CF CF_PLAYBACK_FILE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command (theoretically) causes a CFDP Put Request to be issued from FSW to the ground."
+COMMAND CF CF_TX_FILE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command (theoretically) causes a CFDP Put Request to be issued from FSW to the ground."
   APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x18B3 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
-  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 149 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 137 "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 2 "CCSDS Command Function Code"
   APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
-  APPEND_PARAMETER CLASS 8 UINT 1 2 1 "CFDP Class 1 or 2"
-    STATE "CLASS 1 - No Feedback" 1
-    STATE "CLASS 2 - With Feedback" 2
-  APPEND_PARAMETER CHAN 8 UINT 0 1 0 "CFDP Chan 0 or 1"
+  APPEND_PARAMETER CLASS 8 UINT 0 1 0 "CFDP Class 1 or 2"
+    STATE "CLASS 1 - No Feedback" 0
+    STATE "CLASS 2 - With Feedback" 1
+APPEND_PARAMETER KEEP 8 UINT 0 1 1 "Keep or delete file after transfer"
+    STATE "Delete" 0
+    STATE "Keep" 1
+  APPEND_PARAMETER CHAN_NUM 8 UINT 0 1 0 "CFDP Chan 0 or 1"
     STATE "Chan 0" 0
     STATE "Chan 1" 1
   APPEND_PARAMETER PRIORITY 8 UINT 0 255 1 "Playback Priority"
-  APPEND_PARAMETER PRESERVE 8 UINT 0 1 1 "On success, delete (0) or keep (1)"
-    STATE "Delete" 0
-    STATE "Keep" 1
-  APPEND_PARAMETER PEER_ENTITY_ID 128 STRING "0.21" "Destination ID - 2 bytes"
+  APPEND_PARAMETER DEST_ID 32 STRING "0.21" "Destination ID - 2 bytes"
   APPEND_PARAMETER SRCFILENAME 512 STRING "/data/" "Path/Filename to send"
   APPEND_PARAMETER DSTFILENAME 512 STRING "/tmp/data" "Path/Filename at destination"
 
