@@ -15,14 +15,32 @@ module CFDP
         @pduHeader = CFDP::PDUHeader.new(content)
         payloadData = content[@pduHeader.headerSize..content.length]
 
-        if (@pduHeader.pduType == 1)
+        #puts "pduHeader"
+        #puts "  .version = #{@pduHeader.version}"
+        #puts "  .pduType = #{@pduHeader.pduType}"
+        #puts "  .direction = #{@pduHeader.direction}"
+        #puts "  .transmissionMode = #{@pduHeader.transmissionMode}"
+        #puts "  .crcFlag = #{@pduHeader.crcFlag}"
+        ##puts "  .largeFileFlag = #{@pduHeader.largeFileFlag}"
+        #puts "  .pduDataLength = #{@pduHeader.pduDataLength}"
+        #puts "  .IDLength = #{@pduHeader.IDLength}"
+        ##puts "  .segmentMetadataFlag = #{@pduHeader.segmentMetadataFlag}"
+        #puts "  .sequenceLength = #{@pduHeader.sequenceLength}"
+        #puts "  .sourceID = #{@pduHeader.sourceID}"
+        #puts "  .sequenceNumber = #{@pduHeader.sequenceNumber}"
+        #puts "  .destinationID = #{@pduHeader.destinationID}"
+        #puts "payloadData = #{payloadData}"
 
+        if (@pduHeader.pduType == 1)
+          #puts "-- PDUFileData.new(payloadData)"
+          #sleep 1
           @pduPayload = CFDP::PDUFileData.new(payloadData)
         else
 
           fdCode = content[@pduHeader.headerSize]
           payloadData = payloadData[1..payloadData.length]
-
+          #puts "-- fdCode = #{fdCode}"
+          #sleep 1
           @pduPayload = case fdCode
             when 4 then CFDP::PDUEOF.new(payloadData)
             when 5 then CFDP::PDUFinished.new(payloadData)
@@ -32,8 +50,10 @@ module CFDP
             when 9 then raise "Not implemented Prompt PDU"
             when 12 then raise "Not implemented Keep Alive PDU"
             else raise "Unknown directive code"
-          end
+          end  
         end
+        #puts "+"
+        #sleep 1
       end
     end
 
