@@ -23,7 +23,7 @@ INTERFACE DEBUG udp_interface.rb nos_fsw 5012 5013 nil nil 128 nil nil
   TARGET TO_DEBUG
   TARGET GENERIC_ADCS
 
-INTERFACE RADIO udp_interface.rb radio_sim 6010 6011 nil nil 128 nil nil
+INTERFACE RADIO udp_interface.rb cryptolib 6010 6011 nil nil 128 nil nil
   RECONNECT_DELAY 1
   TARGET ARDUCAM_RADIO
   TARGET CFS_RADIO
