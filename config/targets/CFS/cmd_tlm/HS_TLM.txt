@@ -2,8 +2,8 @@ TELEMETRY HS HS_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping 
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08AD "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNT 8 UINT "HS Application Command Counter."
   APPEND_ITEM CMDERRCOUNT 8 UINT "HS Application Command Error Counter."
