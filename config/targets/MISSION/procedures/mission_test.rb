@@ -1,5 +1,6 @@
 require 'cosmos'
 require 'cosmos/script'
+require 'mission_lib.rb'
 
 class COM < Cosmos::Test
     def setup
@@ -23,10 +24,13 @@ class LPT < Cosmos::Test
     # Limited Performance Test
 
     def setup
-        cmd("CFS_RADIO TO_ENABLE_OUTPUT with DEST_IP 'radio_sim', DEST_PORT 5011")
+        # Confirm radio operational
+        enable_TO_and_verify()
     end
 
     def test_cfdp_large_c1
+        # Confirm radio operational
+        enable_TO_and_verify()
         # Uplink
         cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp1_c1.so'")
         initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
@@ -46,6 +50,8 @@ class LPT < Cosmos::Test
     end
 
     def test_cfdp_large_c2
+        # Confirm radio operational
+        enable_TO_and_verify()
         # Uplink
         cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp1_c2.so'")
         initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
@@ -65,6 +71,8 @@ class LPT < Cosmos::Test
     end
     
     def test_cfdp_small_c1
+        # Confirm radio operational
+        enable_TO_and_verify()
         # Uplink
         cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp0_c1.so'")
         initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
@@ -84,6 +92,8 @@ class LPT < Cosmos::Test
     end
 
     def test_cfdp_small_c2
+        # Confirm radio operational
+        enable_TO_and_verify()
         # Uplink
         cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp0_c2.so'")
         initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
@@ -116,7 +126,7 @@ class Mission_Test < Cosmos::TestSuite
 
     def setup
         cmd("CFS LC_SET_LC_STATE with NEWLCSTATE LC_STATE_ACTIVE")
-        cmd("CFS_RADIO TO_ENABLE_OUTPUT with DEST_IP 'radio_sim', DEST_PORT 5011")
+        enable_TO_and_verify()
     end
     
     def teardown
