@@ -4,7 +4,7 @@ require 'mission_lib.rb'
 
 class COM < Cosmos::Test
     def setup
-        cmd("CFS_RADIO TO_ENABLE_OUTPUT with DEST_IP 'radio_sim', DEST_PORT 5011")
+        enable_TO_and_verify()
     end
 
     def test_debug
@@ -12,7 +12,8 @@ class COM < Cosmos::Test
     end
 
     def test_radio
-        start("com/radio.rb")
+        # Confirm radio operational
+        enable_TO_and_verify()
     end
 
     def teardown
