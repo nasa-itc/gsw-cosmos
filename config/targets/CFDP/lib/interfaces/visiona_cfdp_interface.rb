@@ -1,7 +1,7 @@
 require 'cosmos/interfaces/interface'
 require 'cfdp/cfdp'
 
-module OpenC3
+module Cosmos
 
   # Base class for interfaces that send and receive messages over UDP
   class VisionaCfdpInterface < Interface

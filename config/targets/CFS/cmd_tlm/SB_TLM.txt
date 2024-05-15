@@ -2,8 +2,8 @@ TELEMETRY CFS CFE_SB_HKMSG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Software Bu
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0803 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM COMMANDCNT 8 UINT "Count of valid commands received."
   APPEND_ITEM CMDERRCNT 8 UINT "Count of invalid commands received."
@@ -28,8 +28,8 @@ TELEMETRY CFS CFE_SB_PREVSUBMSG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SB Pre
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080D "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM PKTSEGMENT 32 UINT "Pkt number(starts at 1) in the series."
   APPEND_ITEM TOTALSEGMENTS 32 UINT "Total number of pkts needed to complete the request."
@@ -119,8 +119,8 @@ TELEMETRY CFS CFE_SB_STATMSG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SB Statis
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080A "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM MSGIDSINUSE 32 UINT "Current number of MsgIds with a destination."
   APPEND_ITEM PEAKMSGIDSINUSE 32 UINT "Peak number of MsgIds with a destination."
@@ -145,8 +145,8 @@ TELEMETRY CFS CFE_SB_SUBRPRTMSG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SB Sub
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080E "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM SUBTYPE 8 UINT "Subscription or Unsubscription."
   APPEND_ITEM MSGID 16 UINT "MsgId subscribed or unsubscribe to."

@@ -2,8 +2,8 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0800 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNTER 8 UINT "The ES Application Command Counter."
   APPEND_ITEM ERRCOUNTER 8 UINT "The ES Application Command Error Counter."
@@ -92,8 +92,8 @@ TELEMETRY CFS CFE_ES_POOLSTATSTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Memo
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0810 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM POOLHANDLE 32 UINT "Handle of memory pool whose stats are being telemetered."
   APPEND_ITEM POOLSTATS_POOLSIZE 32 UINT "Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
@@ -110,8 +110,8 @@ TELEMETRY CFS CFE_ES_SHELLPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "OS Sh
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080F "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   <% (1..64).each do |x| %>
       APPEND_ITEM SHELLOUTPUT_<%= x %> 8 UINT "ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte <%= x %>"
   <% end %>

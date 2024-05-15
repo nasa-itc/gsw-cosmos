@@ -2,8 +2,8 @@ TELEMETRY HK HK_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "HK Applicatio
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x089B "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNTER 8 UINT "Count of valid commands received."
   APPEND_ITEM ERRCOUNTER 8 UINT "Count of invalid commands received."
@@ -16,8 +16,8 @@ TELEMETRY HK CFE_HK_COMBINED_PKT1 <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Hous
   APPEND_ID_ITEM CCSDS_STREAMID   16 UINT 0x089C "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE      16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH        16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS       32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS       16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS       32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS       16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE         32 UINT ""
   APPEND_ITEM COMMANDCOUNTER       8 UINT "EVS  Command Counter."
   APPEND_ITEM COMMANDERRCOUNTER    8 UINT "EVS  Command Error Counter."

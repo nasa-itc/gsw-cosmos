@@ -14,7 +14,7 @@ module CFDP
 	module_function :CFDP_Indication
 end
 
-module OpenC3
+module Cosmos
 
 	def Start_CFDP_Uplink(classType, destID, sourceFileName, destFileName)
 
@@ -28,4 +28,4 @@ module OpenC3
 	end
 
 	module_function :Start_CFDP_Uplink
-end	# module OpenC3
+end	# module Cosmos
