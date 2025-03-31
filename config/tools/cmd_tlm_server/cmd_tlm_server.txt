@@ -56,3 +56,6 @@ INTERFACE_TARGET CFDP cmd_tlm_server.txt
 
 INTERFACE SIM_42_TRUTH_INT udp_interface.rb truth42sim 5110 5111 nil nil 128 nil nil
   TARGET SIM_42_TRUTH
+
+INTERFACE SIM_CMDBUS_BRIDGE tcpip_client_interface.rb nos_sim_bridge 12020 12020 nil nil TEMPLATE 0x0A 0x0A
+  TARGET SIM_CMDBUS_BRIDGE
