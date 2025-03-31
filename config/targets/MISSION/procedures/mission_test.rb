@@ -21,6 +21,24 @@ class COM < Cosmos::Test
     end
 end
 
+class CFS < Cosmos::Test
+    def setup
+        
+    end
+
+    def test_cfs_lpt
+        
+    end
+
+    def test_cfs_cpt
+
+    end
+
+    def teardown
+        
+    end
+end
+
 class LPT < Cosmos::Test
     # Limited Performance Test
 
