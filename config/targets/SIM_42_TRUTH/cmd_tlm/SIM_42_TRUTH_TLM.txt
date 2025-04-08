@@ -133,3 +133,6 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
     APPEND_ITEM         GEOCENTRIC_LATITUDE    0    DERIVED  "Geocentric latitude of the spacecraft (degrees)"
       READ_CONVERSION geocentric_latitude.rb POSITION_N_0 POSITION_N_1 POSITION_N_2
       FORMAT_STRING "%.1f"
+    APPEND_ITEM         ECEF_POS          0    DERIVED  "ECEF Position - Position Vector Relative to Earth Fixed Frame (meters)"
+      READ_CONVERSION ecef_pos.rb POSITION_N_0 POSITION_N_1 POSITION_N_2 QN_0 QN_1 QN_2 QN_3
+      FORMAT_STRING "%.0f"
