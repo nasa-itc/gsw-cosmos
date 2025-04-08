@@ -1,7 +1,7 @@
 require 'cosmos/conversions/conversion'
 
 module Cosmos
-  class NadirInBody < Conversion
+  class EcefPos < Conversion
     def initialize(*args)
       super()
       @items = args
