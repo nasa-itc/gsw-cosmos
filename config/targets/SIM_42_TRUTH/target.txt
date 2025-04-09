@@ -9,4 +9,3 @@ REQUIRE z_nadir_angle.rb
 REQUIRE ram_in_body.rb
 REQUIRE nadir_in_body.rb
 REQUIRE geocentric_latitude.rb
-REQUIRE ecef_pos.rb
