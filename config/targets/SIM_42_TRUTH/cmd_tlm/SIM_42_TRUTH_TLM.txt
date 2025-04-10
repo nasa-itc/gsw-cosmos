@@ -43,6 +43,12 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
 		APPEND_ITEM VELOCITY_W_<%= x %> 64 FLOAT "Earth Centered Earth Fixed Velocity (m/s). Component <%= x%>"
       FORMAT_STRING "%.0f"
 	<% end %>
+    APPEND_ITEM         ACC_B_X                 64  FLOAT       "Linear Acceleration in the Body Frame (m/s^2), X Component"
+    APPEND_ITEM         ACC_B_Y                 64  FLOAT       "Linear Acceleration in the Body Frame (m/s^2), Y Component"
+    APPEND_ITEM         ACC_B_Z                 64  FLOAT       "Linear Acceleration in the Body Frame (m/s^2), Z Component"
+    APPEND_ITEM         GYRO_B_X                64  FLOAT       "Gyroscope Rotation in the Body Frame (deg/s), X Component"
+    APPEND_ITEM         GYRO_B_Y                64  FLOAT       "Gyroscope Rotation in the Body Frame (deg/s), Y Component"
+    APPEND_ITEM         GYRO_B_Z                64  FLOAT       "Gyroscope Rotation in the Body Frame (deg/s), Z Component"
     APPEND_ITEM         NEWLINE                 8   UINT  "Newline character"
     APPEND_ITEM         HVB_MAG                 0   DERIVED  "Magnitude of the Angular Momentum (Nms)"
       GENERIC_READ_CONVERSION_START FLOAT 64
