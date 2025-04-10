@@ -39,6 +39,10 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
 		APPEND_ITEM POSITION_W_<%= x %> 64 FLOAT "Earth Centered Earth Fixed Position (m). Component <%= x%>"
       FORMAT_STRING "%.0f"
 	<% end %>
+  <% (0..2).each do |x| %>
+		APPEND_ITEM VELOCITY_W_<%= x %> 64 FLOAT "Earth Centered Earth Fixed Velocity (m/s). Component <%= x%>"
+      FORMAT_STRING "%.0f"
+	<% end %>
     APPEND_ITEM         NEWLINE                 8   UINT  "Newline character"
     APPEND_ITEM         HVB_MAG                 0   DERIVED  "Magnitude of the Angular Momentum (Nms)"
       GENERIC_READ_CONVERSION_START FLOAT 64
