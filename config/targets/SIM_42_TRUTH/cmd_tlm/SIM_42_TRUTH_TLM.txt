@@ -49,6 +49,9 @@ TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation
     APPEND_ITEM         GYRO_B_X                64  FLOAT       "Angular Rate in the Body Frame (rad/s), X Component"
     APPEND_ITEM         GYRO_B_Y                64  FLOAT       "Angular Rate in the Body Frame (rad/s), Y Component"
     APPEND_ITEM         GYRO_B_Z                64  FLOAT       "Angular Rate in the Body Frame (rad/s), Z Component"
+    APPEND_ITEM         RW_MOMENTUM_0           64  FLOAT       "Reaction Wheel 0 Angular Momentum (Nms)"
+    APPEND_ITEM         RW_MOMENTUM_1           64  FLOAT       "Reaction Wheel 1 Angular Momentum (Nms)"
+    APPEND_ITEM         RW_MOMENTUM_2           64  FLOAT       "Reaction Wheel 2 Angular Momentum (Nms)"
     APPEND_ITEM         NEWLINE                 8   UINT        "Newline character"
     APPEND_ITEM         HVB_MAG                 0   DERIVED     "Magnitude of the Angular Momentum (Nms)"
       GENERIC_READ_CONVERSION_START FLOAT 64
