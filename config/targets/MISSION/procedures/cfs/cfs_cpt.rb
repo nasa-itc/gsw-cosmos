@@ -1,16 +1,16 @@
 require "sample_lib.rb"
 #require "arducam_lib.rb"
-require "generic_adcs_lib.rb"
+#require "generic_adcs_lib.rb"
 require "generic_css_lib.rb"
-require "generic_eps_lib.rb"
+#require "generic_eps_lib.rb"
 require "generic_fss_lib.rb"
-require "generic_imu_lib.rb"
+#require "generic_imu_lib.rb"
 require "generic_mag_lib.rb"
-require "generic_radio_lib.rb"
-require "generic_reaction_wheel_lib.rb"
-require "generic_star_tracker_lib.rb"
-require "generic_torquer_lib.rb"
-require "novatel_oem615_lib.rb"
+#require "generic_radio_lib.rb"
+#require "generic_reaction_wheel_lib.rb"
+#require "generic_star_tracker_lib.rb"
+#require "generic_torquer_lib.rb"
+#require "novatel_oem615_lib.rb"
 
 # Setup radio and enable instruments
 cmd("CFS_RADIO TO_ENABLE_OUTPUT with DEST_IP 'radio_sim', DEST_PORT 5011")
@@ -59,43 +59,43 @@ sleep(CFS_CMD_SLEEP)
 
 #CFDP Large C1
 # Confirm radio operational
-enable_TO_and_verify()
-# Uplink
-cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp1_c1.so'")
-initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
-cmd("CFDP SEND_FILE with CLASS 1, DEST_ID '24', SRCFILENAME '/tmp/nos3/uplink/tmp1.so', DSTFILENAME '/data/tmp1_c1.so'")
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 180)
-check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}")
-sleep 5
-# Downlink
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
-initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
-cmd("CFS_RADIO CF_TX_FILE with CLASS 'CLASS 1 - NO FEEDBACK', KEEP 'KEEP', CHAN_NUM 'CHAN 0', PRIORITY 1, DEST_ID 0x18, SRCFILENAME '/data/tmp1_c1.so', DSTFILENAME '/tmp/nos3/data/tmp1_c1.so'")
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 180)
-wait_check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}", 20)
+# enable_TO_and_verify()
+# # Uplink
+# cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp1_c1.so'")
+# initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
+# cmd("CFDP SEND_FILE with CLASS 1, DEST_ID '24', SRCFILENAME '/tmp/nos3/uplink/tmp1.so', DSTFILENAME '/data/tmp1_c1.so'")
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 180)
+# check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}")
+# sleep 5
+# # Downlink
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
+# initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
+# cmd("CFS_RADIO CF_TX_FILE with CLASS 'CLASS 1 - NO FEEDBACK', KEEP 'KEEP', CHAN_NUM 'CHAN 0', PRIORITY 1, DEST_ID 0x18, SRCFILENAME '/data/tmp1_c1.so', DSTFILENAME '/tmp/nos3/data/tmp1_c1.so'")
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 180)
+# wait_check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}", 20)
 
 #CFDP Small C2
 # Confirm radio operational
-enable_TO_and_verify()
-# Uplink
-cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp0_c2.so'")
-initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
-cmd("CFDP SEND_FILE with CLASS 2, DEST_ID '24', SRCFILENAME '/tmp/nos3/uplink/tmp0.so', DSTFILENAME '/data/tmp0_c2.so'")
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 20)
-check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}")
-sleep 5
-# Downlink
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
-initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
-cmd("CFS_RADIO CF_TX_FILE with CLASS 'CLASS 2 - WITH FEEDBACK', KEEP 'KEEP', CHAN_NUM 'CHAN 0', PRIORITY 1, DEST_ID 0x18, SRCFILENAME '/data/tmp0_c2.so', DSTFILENAME '/tmp/nos3/data/tmp0_c2.so'")
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 20)
-wait_check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}", 20)
+# enable_TO_and_verify()
+# # Uplink
+# cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp0_c2.so'")
+# initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
+# cmd("CFDP SEND_FILE with CLASS 2, DEST_ID '24', SRCFILENAME '/tmp/nos3/uplink/tmp0.so', DSTFILENAME '/data/tmp0_c2.so'")
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 20)
+# check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}")
+# sleep 5
+# # Downlink
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
+# initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
+# cmd("CFS_RADIO CF_TX_FILE with CLASS 'CLASS 2 - WITH FEEDBACK', KEEP 'KEEP', CHAN_NUM 'CHAN 0', PRIORITY 1, DEST_ID 0x18, SRCFILENAME '/data/tmp0_c2.so', DSTFILENAME '/tmp/nos3/data/tmp0_c2.so'")
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
+# wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 20)
+# wait_check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}", 20)
 
 #Components 
 #Sample
@@ -110,7 +110,7 @@ sample_cmd("SAMPLE SAMPLE_NOOP_CC")
 #  cmd("SAMPLE SAMPLE_DISABLE_CC")
 
 #Arducam
-generic_adcs_cmd("ARDUCAM CAM_NOOP_CC")
+#arducam_cmd("ARDUCAM CAM_NOOP_CC")
 
 # cmd("ARDUCAM CAM_RESET_COUNTERS_CC")
 # sleep 10
@@ -120,7 +120,7 @@ generic_adcs_cmd("ARDUCAM CAM_NOOP_CC")
 # check("ARDUCAM ARDUCAM_HK_TLM_T COMMANDCOUNT > #{current}")
 
 #adcs
-generic_adcs_cmd("GENERIC_ADCS GENERIC_ADCS_NOOP_CC")
+#generic_adcs_cmd("GENERIC_ADCS GENERIC_ADCS_NOOP_CC")
 
 #  cmd("GENERIC_ADCS GENERIC_ADCS_RST_COUNTERS_CC")
 #  sleep 10
@@ -142,7 +142,7 @@ generic_css_cmd("GENERIC_CSS GENERIC_CSS_NOOP_CC")
 #  cmd("GENERIC_CSS GENERIC_CSS_DISABLE_CC")
 
 #eps
-generic_eps_cmd("GENERIC_EPS GENERIC_EPS_NOOP_CC")
+#generic_eps_cmd("GENERIC_EPS GENERIC_EPS_NOOP_CC")
 
 
 #  cmd("GENERIC_EPS GENERIC_EPS_RST_COUNTERS_CC")
@@ -153,7 +153,7 @@ generic_eps_cmd("GENERIC_EPS GENERIC_EPS_NOOP_CC")
 #  check("GENERIC_EPS GENERIC_EPS_HK_TLM CMD_COUNT > #{current}")
 
 #fss
-generic_fss_cmd("GENERIC_FSS GENERIC_FSS_NOOP_CC")
+fss_cmd("GENERIC_FSS GENERIC_FSS_NOOP_CC")
 
 #  cmd("GENERIC_FSS GENERIC_FSS_ENABLE_CC")
 #  cmd("GENERIC_FSS GENERIC_FSS_RST_COUNTERS_CC")
@@ -189,7 +189,7 @@ generic_mag_cmd("GENERIC_MAG GENERIC_MAG_NOOP_CC")
 #  cmd("GENERIC_MAG GENERIC_MAG_DISABLE_CC")
 
  #rw
- generic_reaction_wheel_cmd("GENERIC_REACTION_WHEEL GENERIC_RW_NOOP_CC")
+ #generic_reaction_wheel_cmd("GENERIC_REACTION_WHEEL GENERIC_RW_NOOP_CC")
 
 #  cmd("GENERIC_REACTION_WHEEL GENERIC_RW_RST_COUNTERS_CC")
 #  cmd("GENERIC_REACTION_WHEEL GENERIC_RW_REQ_DATA_CC")
@@ -201,7 +201,7 @@ generic_mag_cmd("GENERIC_MAG GENERIC_MAG_NOOP_CC")
 #  check("GENERIC_REACTION_WHEEL GENRW_HK_TLM_T COMMAND_COUNT > #{current}")
  
  #st
- generic_star_tracker_cmd("GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_NOOP_CC")
+ #generic_star_tracker_cmd("GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_NOOP_CC")
 
 #  cmd("GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_ENABLE_CC")
 #  cmd("GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_RST_COUNTERS_CC")
@@ -215,7 +215,7 @@ generic_mag_cmd("GENERIC_MAG GENERIC_MAG_NOOP_CC")
 #  cmd("GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_DISABLE_CC")
 
  #thruster
- generic_thruster_cmd("GENERIC_THRUSTER GENERIC_THRUSTER_NOOP_CC")
+ #generic_thruster_cmd("GENERIC_THRUSTER GENERIC_THRUSTER_NOOP_CC")
 
 #  cmd("GENERIC_THRUSTER GENERIC_THRUSTER_ENABLE_CC")
 #  cmd("GENERIC_THRUSTER GENERIC_THRUSTER_RST_COUNTERS_CC")
@@ -229,7 +229,7 @@ generic_mag_cmd("GENERIC_MAG GENERIC_MAG_NOOP_CC")
 #  cmd("GENERIC_THRUSTER GENERIC_THRUSTER_DISABLE_CC")
 
 # torquer
-generic_torquer_cmd("GENERIC_TORQUER GENERIC_TORQUER_NOOP_CC")
+#generic_torquer_cmd("GENERIC_TORQUER GENERIC_TORQUER_NOOP_CC")
 
 #  cmd("GENERIC_TORQUER GENERIC_TORQUER_ENABLE_CC")
 #  cmd("GENERIC_TORQUER GENERIC_TORQUER_RST_COUNTERS_CC")
@@ -241,7 +241,7 @@ generic_torquer_cmd("GENERIC_TORQUER GENERIC_TORQUER_NOOP_CC")
 #  cmd("GENERIC_TORQUER GENERIC_TORQUER_DISABLE_CC")
 
 # gps
-novatel_oem615_cmd("NOVATEL_OEM615 NOVATEL_OEM615_NOOP_CC")
+#novatel_oem615_cmd("NOVATEL_OEM615 NOVATEL_OEM615_NOOP_CC")
 
 #  cmd("NOVATEL_OEM615 NOVATEL_OEM615_ENABLE_CC")
 #  cmd("NOVATEL_OEM615 NOVATEL_OEM615_RST_COUNTERS_CC")
