@@ -10,7 +10,7 @@ require "generic_mag_lib.rb"
 #require "generic_reaction_wheel_lib.rb"
 #require "generic_star_tracker_lib.rb"
 require "generic_torquer_lib.rb"
-require "novatel_oem615_lib.rb"
+require "gps_lib.rb"
 
 # Setup radio and enable instruments
 cmd("CFS_RADIO TO_ENABLE_OUTPUT with DEST_IP 'radio_sim', DEST_PORT 5011")
