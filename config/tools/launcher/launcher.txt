@@ -4,7 +4,7 @@ LABEL_FONT tahoma 16
 NUM_COLUMNS 5
 
 MULTITOOL_START "COSMOS" NULL
-  TOOL "LAUNCH CmdTlmServer -w 850 -t 350 -c cmd_tlm_server.txt" 
+  TOOL "LAUNCH CmdTlmServer -w 875 -t 430 -c cmd_tlm_server.txt" 
   DELAY 2
   TOOL "LAUNCH CmdSender -w 650 -t 300"
   DELAY 2
