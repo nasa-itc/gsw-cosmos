@@ -58,7 +58,7 @@ cmd("CFS_RADIO SCH_NOOP")
 sleep(CFS_CMD_SLEEP)
 
 #CFDP Large C1
-Confirm radio operational
+#Confirm radio operational
 enable_TO_and_verify()
 # Uplink
 cmd("CFS_RADIO FM_DELETE with FILENAME '/data/tmp1_c1.so'")
