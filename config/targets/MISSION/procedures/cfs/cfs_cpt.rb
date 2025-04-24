@@ -1,16 +1,13 @@
 require "sample_lib.rb"
-#require "arducam_lib.rb"
-#require "generic_adcs_lib.rb"
+require "generic_adcs_lib.rb"
 require "generic_css_lib.rb"
-#require "generic_eps_lib.rb"
+require "generic_eps_lib.rb"
 require "generic_fss_lib.rb"
-#require "generic_imu_lib.rb"
+require "generic_imu_lib.rb"
 require "generic_mag_lib.rb"
-#require "generic_radio_lib.rb"
-#require "generic_reaction_wheel_lib.rb"
-#require "generic_star_tracker_lib.rb"
 require "generic_torquer_lib.rb"
 require "gps_lib.rb"
+require "cfs_lib.rb"
 
 # Setup radio and enable instruments
 cmd("CFS_RADIO TO_ENABLE_OUTPUT with DEST_IP 'radio_sim', DEST_PORT 5011")
@@ -101,38 +98,38 @@ wait_check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}
 # sample
 sample_cmd("SAMPLE SAMPLE_NOOP_CC")
 
-# arducam
-#arducam_cmd("ARDUCAM CAM_NOOP_CC")
-
-# adcs
-#generic_adcs_cmd("GENERIC_ADCS GENERIC_ADCS_NOOP_CC")
-
 # css
 generic_css_cmd("GENERIC_CSS GENERIC_CSS_NOOP_CC")
-
-# eps
-#generic_eps_cmd("GENERIC_EPS GENERIC_EPS_NOOP_CC")
 
 # fss
 fss_cmd("GENERIC_FSS GENERIC_FSS_NOOP_CC")
 
 # imu
-#generic_imu_cmd("GENERIC_IMU GENERIC_IMU_NOOP_CC")
+cf_cmd("GENERIC_IMU GENERIC_IMU_NOOP_CC")
 
 # mag
 generic_mag_cmd("GENERIC_MAG GENERIC_MAG_NOOP_CC")
-
-# rw
-#generic_reaction_wheel_cmd("GENERIC_REACTION_WHEEL GENERIC_RW_NOOP_CC")
- 
-# st
-#generic_star_tracker_cmd("GENERIC_STAR_TRACKER GENERIC_STAR_TRACKER_NOOP_CC")
-
-#thruster
-#generic_thruster_cmd("GENERIC_THRUSTER GENERIC_THRUSTER_NOOP_CC")
 
 # torquer
 generic_torquer_cmd("GENERIC_TORQUER GENERIC_TORQUER_NOOP_CC")
 
 # gps
 gps_cmd("NOVATEL_OEM615 NOVATEL_OEM615_NOOP_CC")
+
+
+#CFS System Tests
+cmd("CFS CFE_ES_NOOP")
+cmd("CFS CFE_TBL_NOOP")
+cmd("CFS CFE_TIME_NOOP")
+cmd("CFS CF_NOOP")
+cmd("CFS CI_NOOP_CC")
+cmd("CFS CS_NOOP_CC")
+cmd("CFS FM_NOOP")
+cmd("CFS HK_NOOP")
+cmd("CFS HS_NOOP")
+cmd("CFS LC_NOOP")
+cmd("CFS MD_NOOP")
+cmd("CFS MM_NOOP")
+cmd("CFS SCH_NOOP")
+cmd("CFS SC_NOOP")
+cmd("CFS TO_NOOP")
