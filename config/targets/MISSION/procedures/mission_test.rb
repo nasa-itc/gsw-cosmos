@@ -12,7 +12,7 @@ class COM < Cosmos::Test
     end
 
     def test_radio
-        Confirm radio operational
+        # Confirm radio operational
         enable_TO_and_verify()
     end
 
@@ -40,10 +40,10 @@ class CFS < Cosmos::Test
 end
 
 class LPT < Cosmos::Test
-    Limited Performance Test
+    # Limited Performance Test
 
     def setup
-        Confirm radio operational
+        # Confirm radio operational
         enable_TO_and_verify()
     end
 
