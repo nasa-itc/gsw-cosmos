@@ -21,6 +21,8 @@ if battery_bus_voltage < battery_threshold
     end
 end
 
+obtain_file_list_cam()
+
 puts "STF nominal pass script complete!  Perform any necessary commanding now."
 raise "Pausing script - press go to resume and conclude the pass."
 
