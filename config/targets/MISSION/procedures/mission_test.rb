@@ -11,31 +11,21 @@ class COM < Cosmos::Test
         start("com/debug.rb")
     end
 
+    def test_cfs
+        start("com/cfs.rb")
+    end
+
     def test_radio
         # Confirm radio operational
         enable_TO_and_verify()
     end
 
+    def test_cfs_radio
+        start("com/cfs_radio.rb")
+    end
+
     def teardown
         cmd("CFS_RADIO TO_PAUSE_OUTPUT")
-    end
-end
-
-class CFS < Cosmos::Test
-    def setup
-        
-    end
-
-    def test_cfs_lpt
-        
-    end
-
-    def test_cfs_cpt
-
-    end
-
-    def teardown
-        
     end
 end
 
@@ -136,30 +126,11 @@ class LPT < Cosmos::Test
     end
 end
 
-class CFS < Cosmos::Test
-    def setup
-        
-    end
-  
-    def test_cpt
-        start("cfs/cfs_cpt.rb")
-    end
-
-    def test_lpt
-        start("cfs/cfs_lpt.rb")
-    end
-  
-    def teardown
-    
-    end
-end
-
 class Mission_Test < Cosmos::TestSuite
     def initialize
         super()
         add_test('COM')
         add_test('LPT')
-        add_test('CFS')
     end
 
     def setup
