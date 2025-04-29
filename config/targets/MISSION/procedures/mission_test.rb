@@ -11,9 +11,17 @@ class COM < Cosmos::Test
         start("com/debug.rb")
     end
 
+    def test_cfs
+        start("com/cfs.rb")
+    end
+
     def test_radio
         # Confirm radio operational
         enable_TO_and_verify()
+    end
+
+    def test_cfs_radio
+        start("com/cfs_radio.rb")
     end
 
     def teardown
