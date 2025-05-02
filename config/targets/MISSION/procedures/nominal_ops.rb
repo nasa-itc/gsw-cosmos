@@ -3,7 +3,7 @@ require 'mission_lib'
 enable_TO_and_verify()
 sleep(20)
 
-battery_threshold = 15.00 # volts
+battery_threshold = 23.00 # volts
 battery_bus_voltage = tlm("GENERIC_EPS_RADIO GENERIC_EPS_HK_TLM BATT_VOLTAGE")
 
 if battery_bus_voltage < battery_threshold
