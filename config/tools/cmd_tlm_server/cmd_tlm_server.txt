@@ -2,7 +2,7 @@ TITLE 'COSMOS Command and Telemetry Server - NOS3 Configuration'
 
 BACKGROUND_TASK cfdp_engine_task.rb 
 
-INTERFACE DEBUG udp_interface.rb nos_fsw 5012 5013 nil nil 128 nil nil
+INTERFACE DEBUG udp_interface.rb nos-fsw 5012 5013 nil nil 128 nil nil
   RECONNECT_DELAY 1
   TARGET CI_DEBUG
   TARGET ARDUCAM
@@ -59,5 +59,5 @@ INTERFACE_TARGET CFDP cmd_tlm_server.txt
 INTERFACE SIM_42_TRUTH_INT udp_interface.rb truth42sim 5110 5111 nil nil 128 nil nil
   TARGET SIM_42_TRUTH
 
-INTERFACE SIM_CMDBUS_BRIDGE tcpip_client_interface.rb nos_sim_bridge 12020 12020 nil nil TEMPLATE 0x0A 0x0A
+INTERFACE SIM_CMDBUS_BRIDGE tcpip_client_interface.rb nos-sim-bridge 12020 12020 nil nil TEMPLATE 0x0A 0x0A
   TARGET SIM_CMDBUS_BRIDGE
