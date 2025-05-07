@@ -1,6 +1,5 @@
 require 'mission_lib'
 
-
 # First, make sure we can contact the SC and we can receive data from it
 enable_TO_and_verify()
 sleep(20)
@@ -10,7 +9,6 @@ prompt("Proceed with battery voltage check, Press OK to continue.")
 wait_check_packet("GENERIC_EPS_RADIO", "GENERIC_EPS_HK_TLM", 1, 10) 
 battery_bus_voltage = tlm("GENERIC_EPS_RADIO GENERIC_EPS_HK_TLM BATT_VOLTAGE")
 message_box("Battery bus voltage reported to be #{battery_bus_voltage} volts.", "OK", false)
-
 
 # Third, verify SC State
 prompt("Proceed with Manager SC Mode check, Press OK to continue.")
