@@ -25,8 +25,18 @@ ar_cnt = tlm("MGR_RADIO MGR_HK_TLM ANOM_REBOOT_COUNTER")
 message_box("Anomalous reboot counter reported to be #{ar_cnt}.", "OK", false)
 
 # Fifth, Instrument first light?
+prompt("Proceed with Instrument First Light!, Press OK to continue.")
+cmd("SAMPLE_RADIO SAMPLE_ENABLE_CC")
+prompt("Check Sample Data for streaming telemetry, dismiss this prompt when done.")
+message_box("Press OK to disable sample device.", "OK", false)
+cmd("SAMPLE_RADIO SAMPLE_DISABLE_CC")
 
-# Sixth, complete pass and turn off radio
+# Sixth, configure Science Regions to later be used
+prompt("About to configure science regions, Press OK to continue.")
+cmd("MGR_RADIO MGR_SET_AK_CC with AK_STATUS ENABLE")
+cmd("MGR_RADIO MGR_SET_CONUS_CC with CONUS_STATUS ENABLE")
+cmd("MGR_RADIO MGR_SET_HI_CC with HI_STATUS ENABLE")
 
+# Seventh, complete pass and turn off radio
 prompt("STF commissioning complete!  Press OK to turn off SC Radio.")
 cmd("CFS_RADIO TO_DISABLE_OUTPUT")
