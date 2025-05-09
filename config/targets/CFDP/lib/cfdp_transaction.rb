@@ -777,7 +777,12 @@ module CFDP
       Utils_visiona.verifyInput(CFDP::PDUPacket, pduPacket.class)
       writeLog("Received #{pduPacket.pduPayload.class}: #{pduPacket.pack.to_s}")
 
-      replyWithAck?(pduPacket)
+      CFDP::CFDP_Indication("Received a packet.. does it deserve an ack?")
+      if @status.eql?("FINISHED")
+        return
+      else
+        replyWithAck?(pduPacket)
+      end
 
       if @status.eql?("FINISHED")
 
