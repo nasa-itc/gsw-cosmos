@@ -5,5 +5,3 @@ tmp
 COMPONENTS/
 procedures/tmp.rb
 build/
-config/system/system.txt
-config/tools/cmd_tlm_server/cmd_tlm_server.txt
