@@ -165,16 +165,16 @@ module CFDP
     # end function description
     def writeLog(errorNumber, text)
 
-      Utils_visiona.verifyInput(Integer, errorNumber.class)
-      Utils_visiona.verifyInput(String, text.class)
+      # Utils_visiona.verifyInput(Integer, errorNumber.class)
+      # Utils_visiona.verifyInput(String, text.class)
 
       @hkpacket.eng_totalerrors+=1 unless errorNumber==1
 
-      Thread.new do
+      # Thread.new do
 
-        file = errorNumber==1 ? @pduReceivedLogFile : @errorLogFile
-        File.open(file, "a+") {|file| file.puts "#{Time.now} #{text}"}
-      end
+      #   file = errorNumber==1 ? @pduReceivedLogFile : @errorLogFile
+      #   File.open(file, "a+") {|file| file.puts "#{Time.now} #{text}"}
+      # end
     end
 
     # Useful simple and verbal function definitions here.
