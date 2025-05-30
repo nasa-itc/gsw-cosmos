@@ -359,7 +359,8 @@ module CFDP
                 disableTimer("NAK")
                 finish_downlink_transaction if haspdueof?
                 next
-              elsif nakPdu.pack == @pdus["NAK"].pack
+                
+              elsif nakPdu.pack == @pdus["NAK"]
 
                 writeLog("NAK_LIMIT reached, re-sending PDU")
                 @timer[timerType]["Tries"]+=1
