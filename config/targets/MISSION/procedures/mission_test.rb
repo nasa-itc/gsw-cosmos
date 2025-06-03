@@ -48,7 +48,7 @@ class LPT < Cosmos::Test
         wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
         wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 180)
         check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}")
-        sleep 5
+        sleep 30
         # Downlink
         wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
         initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
@@ -69,7 +69,7 @@ class LPT < Cosmos::Test
         wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
         wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 180)
         check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}")
-        sleep 5
+        sleep 30
         # Downlink
         wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
         initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
@@ -126,11 +126,36 @@ class LPT < Cosmos::Test
     end
 end
 
+class CRYPTO < Cosmos::Test
+    # CryptoLib Performance Test
+
+    def setup
+        # Confirm radio operational
+        enable_TO_and_verify()
+    end
+
+    def test_sc_hktlm
+        # Confirm radio operational
+        enable_TO_and_verify()
+        cmd("CFS_RADIO SC_RESET_COUNTERS")
+        wait_check("CFS_RADIO SC_HKTLM CMDCTR == 0", 10)
+        100.times do |n|
+            cmd("CFS_RADIO SC_NOOP")
+        end
+        wait_check("CFS_RADIO SC_HKTLM CMDCTR >= 100", 10)
+    end
+
+    def teardown
+        cmd("CFS_RADIO TO_PAUSE_OUTPUT")
+    end
+end
+
 class Mission_Test < Cosmos::TestSuite
     def initialize
         super()
         add_test('COM')
         add_test('LPT')
+        add_test('CRYPTO')
     end
 
     def setup
