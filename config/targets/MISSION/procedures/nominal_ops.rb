@@ -25,7 +25,7 @@ wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 10)
 initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
 cmd("CFS_RADIO CF_TX_FILE with CLASS 'CLASS 2 - WITH FEEDBACK', KEEP 'KEEP', CHAN_NUM 'CHAN 0', PRIORITY 1, DEST_ID 0x18, SRCFILENAME '/data/dummy.txt', DSTFILENAME '/tmp/nos3/data/dummy.txt'")
 wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 1", 10)
-wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 360)
+wait_check("CFDP CFDP_ENGINE_HK ENG_INPROGRESSTRANS == 0", 400)
 wait_check("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS > #{initial_success_count}", 20)
 
 puts "STF nominal pass script complete!  Perform any necessary commanding now."
