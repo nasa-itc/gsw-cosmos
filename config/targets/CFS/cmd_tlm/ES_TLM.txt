@@ -13,17 +13,17 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM CFEMINORVERSION 8 UINT "Minor Version Number of cFE."
   APPEND_ITEM CFEREVISION 8 UINT "Sub-Minor Version Number of cFE."
   APPEND_ITEM CFEMISSIONREVISION 8 UINT "Mission Version Number of cFE."
-  
+
   APPEND_ITEM OSALMAJORVERSION 8 UINT "OS Abstraction Layer Major Version Number."
   APPEND_ITEM OSALMINORVERSION 8 UINT "OS Abstraction Layer Minor Version Number."
   APPEND_ITEM OSALREVISION 8 UINT "OS Abstraction Layer Revision Number."
   APPEND_ITEM OSALMISSIONREVISION 8 UINT "OS Abstraction Layer MissionRevision Number."
-  
+
   APPEND_ITEM PSP_MAJORVERSION 8 UINT "Platform Support Package Major Version Number."
   APPEND_ITEM PSP_MINORVERSION 8 UINT "Platform Support Package Minor Version Number."
   APPEND_ITEM PSP_REVISION 8 UINT "Platform Support Package Revision Number."
   APPEND_ITEM PSP_MISSIONREVISION 8 UINT "Platform Support Package MissionRevision Number."
-  
+
   APPEND_ITEM SYSLOGBYTESUSED 32 UINT "Total number of bytes used in system log."
   APPEND_ITEM SYSLOGSIZE 32 UINT "Total size of the system log."
   APPEND_ITEM SYSLOGENTRIES 32 UINT "Number of entries in the system log."
@@ -35,7 +35,7 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM REGISTEREDEXTERNALAPPS 32 UINT "Number of Applications registered with ES."
   APPEND_ITEM REGISTEREDTASKS 32 UINT "Number of Tasks ( main AND child tasks ) registered with ES."
   APPEND_ITEM REGISTEREDLIBS 32 UINT "Number of Libraries registered with ES."
-  
+
   APPEND_ITEM RESETTYPE 32 UINT "Reset type ( PROCESSOR or POWERON )."
   APPEND_ITEM RESETSUBTYPE 32 UINT "Reset Sub Type."
   APPEND_ITEM PROCESSORRESETS 32 UINT "Number of processor resets since last power on."
@@ -58,7 +58,7 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM HEAPBYTESFREE 32 UINT "Number of free bytes remaining in the OS heap."
   APPEND_ITEM HEAPBLOCKSFREE 32 UINT "Number of free blocks remaining in the OS heap."
   APPEND_ITEM HEAPMAXBLOCKSIZE 32 UINT "Number of bytes in the largest free block."
-  
+
 TELEMETRY CFS CFE_ES_ONEAPPTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Single Application Information Packet"
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080B "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
