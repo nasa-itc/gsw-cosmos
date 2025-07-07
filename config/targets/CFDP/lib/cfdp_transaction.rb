@@ -778,11 +778,7 @@ module CFDP
       Utils_visiona.verifyInput(CFDP::PDUPacket, pduPacket.class)
       writeLog("Received #{pduPacket.pduPayload.class}: #{pduPacket.pack.to_s}")
 
-      if @status.eql?("FINISHED")
-        return
-      else
-        replyWithAck?(pduPacket)
-      end
+      replyWithAck?(pduPacket)
 
       if @status.eql?("FINISHED")
         CFDP::CFDP_Indication("Transaction #{@ID} already finished. Ignoring.")
