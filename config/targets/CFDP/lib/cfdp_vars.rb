@@ -23,7 +23,7 @@ FINISH_LOG_LIMIT = 25
 MYID = 21
 DESTINATIONID = 24
 USE_CRC = 0						# (0 - false, 1 - true). CRC is not supported @ CFS CF
-MAX_PDU_SIZE = 128				# Bytes
+MAX_PDU_SIZE = 480				# Bytes
 MAX_STRING_SIZE = 64			# Used for destination and source file names
 SAVE_FILE_UPON_ERROR = true 	# Choose whether to save file or not if error
 
