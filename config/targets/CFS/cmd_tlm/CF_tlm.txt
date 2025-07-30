@@ -34,7 +34,7 @@ TELEMETRY CF CF_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %>  "CF Applicati
       APPEND_ITEM CH<%= x %>_Q_SIZE_<%= y %> 16 UINT "Queue size"
     <% end %>
     APPEND_ITEM CH<%= x %>_POLL_COUNTER 8 UINT "Number of active polling directories"
-    APPEND_ITEM CH<%= x %>_PLAYBACK_COUNTER 8 UINT "Number of active playback directories" 
+    APPEND_ITEM CH<%= x %>_PLAYBACK_COUNTER 8 UINT "Number of active playback directories"
     APPEND_ITEM CH<%= x %>_FROZEN 8 UINT "Frozen state: 0 == not frozen, else frozen"
     <% (1..7).each do |z| %>
       APPEND_ITEM SPARE_<%= z %> 8 UINT ""

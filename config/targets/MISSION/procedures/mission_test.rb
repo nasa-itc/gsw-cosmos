@@ -11,9 +11,17 @@ class COM < Cosmos::Test
         start("com/debug.rb")
     end
 
+    def test_cfs
+        start("com/cfs.rb")
+    end
+
     def test_radio
         # Confirm radio operational
         enable_TO_and_verify()
+    end
+
+    def test_cfs_radio
+        start("com/cfs_radio.rb")
     end
 
     def teardown
@@ -118,11 +126,36 @@ class LPT < Cosmos::Test
     end
 end
 
+class CRYPTO < Cosmos::Test
+    # CryptoLib Performance Test
+
+    def setup
+        # Confirm radio operational
+        enable_TO_and_verify()
+    end
+
+    def test_sc_hktlm
+        # Confirm radio operational
+        enable_TO_and_verify()
+        cmd("CFS_RADIO SC_RESET_COUNTERS")
+        wait_check("CFS_RADIO SC_HKTLM CMDCTR == 0", 10)
+        100.times do |n|
+            cmd("CFS_RADIO SC_NOOP")
+        end
+        wait_check("CFS_RADIO SC_HKTLM CMDCTR >= 100", 10)
+    end
+
+    def teardown
+        cmd("CFS_RADIO TO_PAUSE_OUTPUT")
+    end
+end
+
 class Mission_Test < Cosmos::TestSuite
     def initialize
         super()
         add_test('COM')
         add_test('LPT')
+        add_test('CRYPTO')
     end
 
     def setup
