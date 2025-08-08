@@ -1,4 +1,4 @@
-require 'openc3/conversions/conversion'
+require 'cosmos/conversions/conversion'
 
 #
 # Example usage:
@@ -15,7 +15,7 @@ require 'openc3/conversions/conversion'
 #    STATE "Manual Hi"                  0x03
 #
 
-module OpenC3
+module Cosmos
   class BitFieldConversion < Conversion
     def initialize(packet_field, bit_idx)
       super()

@@ -2,13 +2,13 @@ TELEMETRY LC LC_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping 
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08A7 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNT 8 UINT "LC Application Command Counter."
   APPEND_ITEM CMDERRCOUNT 8 UINT "LC Application Command Error Counter."
   APPEND_ITEM CURRENTLCSTATE 8 UINT "Current LC application operating state."
-    STATE ACTIVE   1 
+    STATE ACTIVE   1
     STATE PASSIVE  2
     STATE DISABLED 3
     STATE FROM_CDS 4
@@ -19,7 +19,7 @@ TELEMETRY LC LC_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping 
         STATE STALE 3
         STATE FALSE 0
         STATE TRUE  1
-        STATE ERROR 2 
+        STATE ERROR 2
     <% end %>
   <% end %>
 
@@ -46,7 +46,7 @@ TELEMETRY LC LC_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping 
   <% end %>
 
   #<% 44.times do |x| %>
-  #APPEND_ITEM WPRESULTS_<%= x %> 8 UINT "Packed watchpoint results data, 2 bits per watchpoint." 
+  #APPEND_ITEM WPRESULTS_<%= x %> 8 UINT "Packed watchpoint results data, 2 bits per watchpoint."
   #ITEM           WP_<%= (x * 4) + 0 %> 0 0 DERIVED     ""
   #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 4) + 0 %>' 0
   #ITEM           WP_<%= (x * 4) + 1 %> 0 0 DERIVED     ""
@@ -57,7 +57,7 @@ TELEMETRY LC LC_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping 
   #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 4) + 3 %>' 6
   #<% end %>
   #<% 88.times do |x| %>
-  #APPEND_ITEM APRESULTS_<%= x %> 8 UINT "Packed actionpoint results data, 4 bits per actionpoint." 
+  #APPEND_ITEM APRESULTS_<%= x %> 8 UINT "Packed actionpoint results data, 4 bits per actionpoint."
   #ITEM           AP_<%= (x * 2) + 0 %> 0 0 DERIVED     ""
   #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 2) + 0 %>' 0
   #ITEM           AP_<%= (x * 2) + 1 %> 0 0 DERIVED     ""

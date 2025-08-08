@@ -2,8 +2,8 @@ TELEMETRY SC SC_HKTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping Pac
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08AA "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM ATSNUMBER 8 UINT "current ATS number 1 = ATS A, 2 = ATS B"
     STATE A 0
@@ -72,7 +72,7 @@ TELEMETRY SC SC_HKTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping Pac
     STATE YES 1
   <% end %>
   #APPEND_ARRAY_ITEM RTSEXECUTINGSTATUS 16 UINT 64 "RTS executing status bit map where each uint16 represents 16 RTS numbers. Note: array index numbers and bit numbers use base zero indexing, but RTS numbers use base one indexing. Thus, the LSB (bit zero) of uint16 array index zero represents RTS number 1, and bit one of uint16 array index zero represents RTS number 2, etc. If an RTS is IDLE, then the corresponding bit is zero. If an RTS is EXECUTING, then the corresponding bit is one."
-  
+
   APPEND_ITEM RTSDISABLEDSTATUS_1  16 UINT "RTS 1-16 Disabled Status"
   <% (0..15).each do |x| %>
   ITEM           RTS<%= x + 1 %>_DISABLED 0 0 DERIVED ""

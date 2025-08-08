@@ -9,8 +9,10 @@ module CFDP
     attr_accessor :direction
     attr_accessor :transmissionMode
     attr_accessor :crcFlag
+    #attr_accessor :largeFileFlag
     attr_accessor :pduDataLength
     attr_accessor :IDLength
+    #attr_accessor :segmentMetadataFlag
     attr_accessor :sequenceLength
     attr_accessor :sourceID
     attr_accessor :sequenceNumber
@@ -45,13 +47,15 @@ module CFDP
         @direction = Utils_visiona.getBits(content[0], 4, 4)
         @transmissionMode = Utils_visiona.getBits(content[0], 3, 3)
         @crcFlag = Utils_visiona.getBits(content[0], 2, 2)
+        #@largeFileFlag = Utils_visiona.getBits(content[0], 1, 1)
         @pduDataLength = (content[1]<<8)+content[2]
         @IDLength = Utils_visiona.getBits(content[3], 5, 7)
+        #@segmentMetadataFlag = Utils_visiona.getBits(content[3], 4, 4)
         @sequenceLength = Utils_visiona.getBits(content[3], 1, 3)
 
         # new verification now that we have length of entity ID and sequence ID
-        # verify if version == 0
-        Utils_visiona.compareValues(@version, 0, "version number")
+        # verify if version == 1
+        Utils_visiona.compareValues(@version, 1, "version number")
         Utils_visiona.verifyLength("less", content.length, headerSize)
 
         # passed verification, continue setting things

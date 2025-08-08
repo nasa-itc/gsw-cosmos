@@ -2,8 +2,8 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0800 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM CMDCOUNTER 8 UINT "The ES Application Command Counter."
   APPEND_ITEM ERRCOUNTER 8 UINT "The ES Application Command Error Counter."
@@ -13,17 +13,17 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM CFEMINORVERSION 8 UINT "Minor Version Number of cFE."
   APPEND_ITEM CFEREVISION 8 UINT "Sub-Minor Version Number of cFE."
   APPEND_ITEM CFEMISSIONREVISION 8 UINT "Mission Version Number of cFE."
-  
+
   APPEND_ITEM OSALMAJORVERSION 8 UINT "OS Abstraction Layer Major Version Number."
   APPEND_ITEM OSALMINORVERSION 8 UINT "OS Abstraction Layer Minor Version Number."
   APPEND_ITEM OSALREVISION 8 UINT "OS Abstraction Layer Revision Number."
   APPEND_ITEM OSALMISSIONREVISION 8 UINT "OS Abstraction Layer MissionRevision Number."
-  
+
   APPEND_ITEM PSP_MAJORVERSION 8 UINT "Platform Support Package Major Version Number."
   APPEND_ITEM PSP_MINORVERSION 8 UINT "Platform Support Package Minor Version Number."
   APPEND_ITEM PSP_REVISION 8 UINT "Platform Support Package Revision Number."
   APPEND_ITEM PSP_MISSIONREVISION 8 UINT "Platform Support Package MissionRevision Number."
-  
+
   APPEND_ITEM SYSLOGBYTESUSED 32 UINT "Total number of bytes used in system log."
   APPEND_ITEM SYSLOGSIZE 32 UINT "Total size of the system log."
   APPEND_ITEM SYSLOGENTRIES 32 UINT "Number of entries in the system log."
@@ -35,7 +35,7 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM REGISTEREDEXTERNALAPPS 32 UINT "Number of Applications registered with ES."
   APPEND_ITEM REGISTEREDTASKS 32 UINT "Number of Tasks ( main AND child tasks ) registered with ES."
   APPEND_ITEM REGISTEREDLIBS 32 UINT "Number of Libraries registered with ES."
-  
+
   APPEND_ITEM RESETTYPE 32 UINT "Reset type ( PROCESSOR or POWERON )."
   APPEND_ITEM RESETSUBTYPE 32 UINT "Reset Sub Type."
   APPEND_ITEM PROCESSORRESETS 32 UINT "Number of processor resets since last power on."
@@ -58,7 +58,7 @@ TELEMETRY CFS CFE_ES_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Executiv
   APPEND_ITEM HEAPBYTESFREE 32 UINT "Number of free bytes remaining in the OS heap."
   APPEND_ITEM HEAPBLOCKSFREE 32 UINT "Number of free blocks remaining in the OS heap."
   APPEND_ITEM HEAPMAXBLOCKSIZE 32 UINT "Number of bytes in the largest free block."
-  
+
 TELEMETRY CFS CFE_ES_ONEAPPTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Single Application Information Packet"
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080B "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
@@ -92,8 +92,8 @@ TELEMETRY CFS CFE_ES_POOLSTATSTLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Memo
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0810 "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   APPEND_ITEM CCSDS_SPARE 32 UINT ""
   APPEND_ITEM POOLHANDLE 32 UINT "Handle of memory pool whose stats are being telemetered."
   APPEND_ITEM POOLSTATS_POOLSIZE 32 UINT "Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
@@ -110,8 +110,8 @@ TELEMETRY CFS CFE_ES_SHELLPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "OS Sh
   APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080F "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
-  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
-  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
   <% (1..64).each do |x| %>
       APPEND_ITEM SHELLOUTPUT_<%= x %> 8 UINT "ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte <%= x %>"
   <% end %>
