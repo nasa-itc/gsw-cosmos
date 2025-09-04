@@ -145,7 +145,7 @@ class CRYPTO < Cosmos::Test
         wait_check("CFS_RADIO SC_HKTLM CMDCTR >= 100", 10)
     end
 
-    def test_sa_lifecycle
+    def test_ep_sa_lifecycle
         # Set to ExProc VCID
         cmd("CRYPTO CRYPTO_SET_VCID with VCID 7")
         wait(1)
@@ -169,6 +169,18 @@ class CRYPTO < Cosmos::Test
         wait(1)
         cmd("CFS_RADIO CRYPTO_SA_DELETE with SPI 60")
         wait(1)
+        # Set to TC VCID
+        cmd("CRYPTO CRYPTO_SET_VCID with VCID 0")
+    end
+
+    def test_ep_tlm
+        enable_TO_and_verify()
+        # Set to ExProc VCID
+        cmd("CRYPTO CRYPTO_SET_VCID with VCID 7")
+        wait(1)
+        initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
+        cmd("CFS_RADIO CRYPTO_MC_PING")
+        wait_check("CFS_RADIO CRYPTO_MC_PING_REPLY RECEIVED_COUNT > #{initial_success_count}", 5)
         # Set to TC VCID
         cmd("CRYPTO CRYPTO_SET_VCID with VCID 0")
     end
