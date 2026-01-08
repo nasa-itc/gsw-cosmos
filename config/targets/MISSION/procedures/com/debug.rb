@@ -6,4 +6,4 @@ require "cfs_lib.rb"
 cmd("TO_DEBUG TO_DEBUG_ENABLE_OUTPUT_CC with DEST_IP 'cosmos', DEST_PORT 5013")
 
 # Check debug aliveness
-get_debug_sc_hk()
+get_sc_hk()
