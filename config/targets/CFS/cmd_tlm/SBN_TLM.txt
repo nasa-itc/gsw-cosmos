@@ -1,5 +1,5 @@
-TELEMETRY SBN SBN_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN_Hk_tlm_t"
-  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DC  "CCSDS Packet Identification" BIG_ENDIAN
+TELEMETRY SBN SBN_HK_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DB  "CCSDS Packet Identification" BIG_ENDIAN
   APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
   APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
   APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
@@ -8,3 +8,61 @@ TELEMETRY SBN SBN_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN_Hk_tlm_t"
   APPEND_ITEM    HK_CC                16 UINT         "Hk command code"
   APPEND_ITEM    CMD_COUNT            16 UINT         "Command Count"
   APPEND_ITEM    CMD_ERR_COUNT        16 UINT         "Command Error Count"
+  APPEND_ITEM    SUB_COUNT            16 UINT         "Subscription Count"
+  APPEND_ITEM    NET_COUNT            16 UINT         "Network Count"
+
+TELEMETRY SBN SBN_HKNET_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN Network Housekeeping"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DC  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    HK_CC                 8 UINT         "Hk command code (11 = SBN_HK_NET_CC)"
+  APPEND_ITEM    PROTOCOL_IDX          8 UINT         "Protocol Index"
+  APPEND_ITEM    PEER_COUNT           16 UINT         "Peer Count"
+
+TELEMETRY SBN SBN_HKPEER_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN Peer Housekeeping"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DD  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    HK_CC                 8 UINT         "Hk command code (12 = SBN_HK_PEER_CC)"
+  APPEND_ITEM    PROCESSOR_ID         32 UINT         "Processor ID"
+  APPEND_ITEM    LAST_SEND_SEC        32 UINT         "Last Send Time (seconds)"
+  APPEND_ITEM    LAST_SEND_SUBSEC     16 UINT         "Last Send Time (subseconds)"
+  APPEND_ITEM    LAST_SEND_SPARE      16 UINT         "Time padding"
+  APPEND_ITEM    LAST_RECV_SEC        32 UINT         "Last Receive Time (seconds)"
+  APPEND_ITEM    LAST_RECV_SUBSEC     16 UINT         "Last Receive Time (subseconds)"
+  APPEND_ITEM    LAST_RECV_SPARE      16 UINT         "Time padding"
+  APPEND_ITEM    SEND_COUNT           16 UINT         "Send Count"
+  APPEND_ITEM    RECV_COUNT           16 UINT         "Receive Count"
+  APPEND_ITEM    SEND_ERR_COUNT       16 UINT         "Send Error Count"
+  APPEND_ITEM    RECV_ERR_COUNT       16 UINT         "Receive Error Count"
+  APPEND_ITEM    SUB_COUNT            16 UINT         "Subscription Count"
+
+TELEMETRY SBN SBN_HKPEERSUBS_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN Peer Subscriptions"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DE  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    HK_CC                 8 UINT         "Hk command code (13 = SBN_HK_PEERSUBS_CC)"
+  APPEND_ITEM    NET_IDX              16 UINT         "Network Index"
+  APPEND_ITEM    PEER_IDX             16 UINT         "Peer Index"
+  APPEND_ITEM    SUB_COUNT            16 UINT         "Subscription Count"
+  APPEND_ARRAY_ITEM SUBS              32 UINT 256     "Subscription Message IDs (variable length based on SUB_COUNT)" BIG_ENDIAN
+
+TELEMETRY SBN SBN_MYSUBS_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN My Subscriptions"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DF  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    HK_CC                16 UINT         "Hk command code (14)"
+  APPEND_ITEM    SUB_COUNT            16 UINT         "Subscription Count"
+  APPEND_ARRAY_ITEM SUBS              32 UINT 256     "Subscription Message IDs (variable length based on SUB_COUNT)" BIG_ENDIAN
