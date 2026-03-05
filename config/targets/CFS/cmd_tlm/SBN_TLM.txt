@@ -54,7 +54,7 @@ TELEMETRY SBN SBN_HKPEERSUBS_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN P
   APPEND_ITEM    NET_IDX              16 UINT         "Network Index" BIG_ENDIAN
   APPEND_ITEM    PEER_IDX             16 UINT         "Peer Index" BIG_ENDIAN
   APPEND_ITEM    SUB_COUNT            16 UINT         "Subscription Count" BIG_ENDIAN
-  APPEND_ARRAY_ITEM SUBS              32 UINT 256     "Subscription Message IDs (variable length based on SUB_COUNT)" BIG_ENDIAN
+  APPEND_ITEM    SUBS               8184 BLOCK        "Subscription Message IDs (variable length based on SUB_COUNT)"
 
 TELEMETRY SBN SBN_MYSUBS_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN My Subscriptions"
   APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08DF  "CCSDS Packet Identification" BIG_ENDIAN
@@ -65,4 +65,4 @@ TELEMETRY SBN SBN_MYSUBS_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "SBN My Su
   APPEND_ITEM    CCSDS_SPARE          32 UINT         "" BIG_ENDIAN
   APPEND_ITEM    HK_CC                 8 UINT         "Hk command code (14)"
   APPEND_ITEM    SUB_COUNT            16 UINT         "Subscription Count" BIG_ENDIAN
-  APPEND_ARRAY_ITEM SUBS              32 UINT 256     "Subscription Message IDs (variable length based on SUB_COUNT)" BIG_ENDIAN
+  APPEND_ITEM    SUBS               8192 BLOCK        "Subscription Message IDs (variable length based on SUB_COUNT)"
