@@ -145,6 +145,46 @@ class CRYPTO < Cosmos::Test
         wait_check("CFS_RADIO SC_HKTLM CMDCTR >= 100", 10)
     end
 
+    def test_ep_sa_lifecycle
+        # Set to ExProc VCID
+        cmd("CRYPTO CRYPTO_SET_VCID with VCID 7")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_CREATE with SPI 60, EST ENCRYPTED, AST AUTHENTICATED, SHIVF_LEN 12, SHSNF_LEN 2, SHPLF_LEN 0, STMAC_LEN 16, ECS_LEN 1, ECS AES256_GCM, IV_LEN 16, IV 0xDEADBEEFDEADBEEFDEADBEEFDEADBEEF, ACS_LEN 1, ACS HMAC_SHA256, ABM_LEN 32, ABM 0xDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEF, ARSN_LEN 4, ARSN 0xDEADBEEF, ARSNW_LEN 2, ARSNW 0x1234")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_REKEY with SPI 60, KEY_ID 130, ARSN 0x000000000000000000000000")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_START with SPI 60, TFVN 0, SCID 3, VCID 8, MAP_ID 0")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_READ_ARSN with SPI 60")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_SET_ARSNW with SPI 60, ARSNW 5")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_SET_ARSN with SPI 60, ARSN 0x0000000000000000DEADBEEF")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_STATUS with SPI 60")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_STOP with SPI 60")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_EXPIRE with SPI 60")
+        wait(1)
+        cmd("CFS_RADIO CRYPTO_SA_DELETE with SPI 60")
+        wait(1)
+        # Set to TC VCID
+        cmd("CRYPTO CRYPTO_SET_VCID with VCID 0")
+    end
+
+    def test_ep_tlm
+        enable_TO_and_verify()
+        # Set to ExProc VCID
+        cmd("CRYPTO CRYPTO_SET_VCID with VCID 7")
+        wait(1)
+        initial_success_count = tlm("CFDP CFDP_ENGINE_HK ENG_TOTALSUCCESSTRANS")
+        cmd("CFS_RADIO CRYPTO_MC_PING")
+        wait_check("CFS_RADIO CRYPTO_MC_PING_REPLY RECEIVED_COUNT > #{initial_success_count}", 5)
+        # Set to TC VCID
+        cmd("CRYPTO CRYPTO_SET_VCID with VCID 0")
+    end
+
     def teardown
         cmd("CFS_RADIO TO_PAUSE_OUTPUT")
     end
